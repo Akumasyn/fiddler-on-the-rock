@@ -461,6 +461,7 @@
     color: var(--gold-light);
     line-height: 1;
     margin-bottom: 4px;
+    text-align: center;
   }
   .price-note {
     font-family: 'Space Mono', monospace;
@@ -469,6 +470,7 @@
     color: var(--muted);
     text-transform: uppercase;
     margin-bottom: 28px;
+    text-align: center;
   }
   .price-breakdown {
     border-top: 1px solid rgba(200,169,110,0.1);
@@ -530,6 +532,99 @@
     color: var(--ink);
   }
   .pricing-btn:hover { background: var(--gold); color: var(--ink); }
+
+  /* ── MEMORY PACKAGE BANNER ── */
+  .pricing-card.memory-pkg {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #1a1520 0%, #1e1628 50%, #1a1520 100%);
+    border-color: rgba(180,140,220,0.35);
+    padding: 48px 56px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+  }
+  .memory-pkg::before {
+    content: '✦ Premium Experience';
+    position: absolute;
+    top: -1px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(90deg, #9b72cf, #c8a96e);
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 4px 20px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .memory-pkg h3 { color: #d4b8f0; }
+  .memory-pkg .price-main { color: #c8a0f0; }
+  .memory-pkg .pricing-btn {
+    background: linear-gradient(135deg, #9b72cf, #7c5cbf);
+    color: #fff;
+    border-color: transparent;
+    padding: 16px 36px;
+    white-space: nowrap;
+  }
+  .memory-pkg .pricing-btn:hover { background: linear-gradient(135deg, #b088df, #9b72cf); transform: translateY(-1px); }
+  .memory-pkg .includes-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 32px;
+    margin-bottom: 32px;
+  }
+  @media (max-width: 900px) {
+    .pricing-card.memory-pkg { grid-template-columns: 1fr; }
+    .memory-pkg .includes-cols { grid-template-columns: 1fr; }
+  }
+
+  /* ── PRICE SUMMARY BOX ── */
+  .price-summary {
+    background: var(--ink-mid);
+    border: 1px solid rgba(200,169,110,0.2);
+    border-radius: 2px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    display: none;
+  }
+  .price-summary.visible { display: block; }
+  .price-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-size: 0.88rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .price-summary-row:last-child { border-bottom: none; }
+  .price-summary-row span:first-child { color: rgba(245,240,232,0.6); }
+  .price-summary-row span:last-child {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--cream);
+  }
+  .price-summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 14px;
+    margin-top: 8px;
+    border-top: 1px solid rgba(200,169,110,0.25);
+  }
+  .price-summary-total .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .price-summary-total .amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    font-weight: 300;
+    color: var(--gold-light);
+  }
 
   /* ── ADD-ONS ── */
   .addons-section { background: var(--ink-soft); }
@@ -925,12 +1020,12 @@
 
     <div class="pricing-grid">
 
-      <!-- LEFT: Small Group -->
+      <!-- LEFT: The Gathering -->
       <div class="pricing-card">
-        <h3>Small Group</h3>
+        <h3>The Gathering</h3>
         <p class="pricing-tagline">Friends, family, a few couples together — the canyon sounds different when you share it with the people you love most.</p>
         <div class="price-main">$175</div>
-        <p class="price-note">Per person · 3–6 guests · Instant booking</p>
+        <p class="price-note">Per person · 3–6 guests</p>
         <div class="price-breakdown">
           <div class="price-row"><span>3 guests</span><span>$525</span></div>
           <div class="price-row"><span>4 guests</span><span>$700</span></div>
@@ -965,12 +1060,12 @@
         <a href="#book" class="pricing-btn">Reserve This Experience</a>
       </div>
 
-      <!-- RIGHT: Large Group -->
+      <!-- RIGHT: The Celebration -->
       <div class="pricing-card">
-        <h3>Large Group</h3>
+        <h3>The Celebration</h3>
         <p class="pricing-tagline">A bigger gathering, still intimate. Seven to ten people experiencing live music under the red cliffs — something none of you will forget.</p>
         <div class="price-main">$165</div>
-        <p class="price-note">Per person · 7–10 guests · Instant booking</p>
+        <p class="price-note">Per person · 7–10 guests</p>
         <div class="price-breakdown">
           <div class="price-row"><span>7 guests</span><span>$1,155</span></div>
           <div class="price-row"><span>8 guests</span><span>$1,320</span></div>
@@ -981,9 +1076,38 @@
           <li>75-minute canyon concert experience</li>
           <li>Cultural Park — easy access for larger groups</li>
           <li>Sedona Artesian Spring Water for all</li>
-          <li>Ideal for reunions, retreats, celebrations</li>
+          <li>Ideal for reunions, retreats, milestones</li>
         </ul>
-        <a href="#book" class="pricing-btn">Book Your Group</a>
+        <a href="#book" class="pricing-btn">Book Your Celebration</a>
+      </div>
+
+      <!-- FULL-WIDTH: Memory Package -->
+      <div class="pricing-card memory-pkg">
+        <div>
+          <span class="section-eyebrow" style="display:block; margin-bottom:8px; color:#c8a0f0;">Sedona Memory Package</span>
+          <h3 style="font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:400; margin-bottom:8px; line-height:1.1;">Live music. The canyon at golden hour.<br><em>And someone to capture all of it.</em></h3>
+          <p style="font-size:0.9rem; color:rgba(245,240,232,0.6); margin-bottom:28px; max-width:600px; line-height:1.6;">The Romantic Escape, elevated. A professional Sedona photographer joins your experience and documents the entire concert — Tyler playing against the canyon, the canyon light, the moment that made you drive out here in the first place. 20+ edited photos delivered within 5 days.</p>
+          <div class="price-main" style="font-size:2.8rem; margin-bottom:6px;">$775</div>
+          <p class="price-note" style="margin-bottom:28px;">For two guests · Photography + Concert · Everything included</p>
+          <div class="includes-cols">
+            <ul class="pricing-includes">
+              <li>Full Romantic Escape experience</li>
+              <li>Professional Sedona photographer</li>
+              <li>60-minute photography session</li>
+              <li>20+ edited digital photos</li>
+            </ul>
+            <ul class="pricing-includes">
+              <li>Delivered within 5 business days</li>
+              <li>Artisan chocolates + spring water</li>
+              <li>Handwritten song dedication card</li>
+              <li>Children under 5 free · Ages 6–15 add $97</li>
+            </ul>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <a href="#book" class="pricing-btn">Book the Memory Package</a>
+          <p style="font-size:0.78rem; color:rgba(245,240,232,0.35); margin-top:12px; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.1em;">Limited availability</p>
+        </div>
       </div>
 
       <!-- FULL-WIDTH: Private Events -->
@@ -1106,8 +1230,8 @@
 <section class="booking-section" id="book">
   <div class="container" style="text-align:center;">
     <span class="section-eyebrow">Reserve Your Experience</span>
-    <h2 class="section-title">Ready to make<br><em>a memory?</em></h2>
-    <p class="section-lead" style="margin: 0 auto;">Fill out the form below and Tyler will personally reach out within 24 hours to confirm your date and answer any questions.</p>
+    <h2 class="section-title">Choose your experience.<br><em>We'll handle the rest.</em></h2>
+    <p class="section-lead" style="margin: 0 auto;">Select your experience below and the price calculates instantly. Tyler personally confirms every booking within 24 hours. Dates fill fast — especially at sunset.</p>
 
     <div class="form-wrap">
       <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
@@ -1135,17 +1259,27 @@
             <select id="experience" name="experience_type" onchange="updateGuests(this.value)">
               <option value="">Select experience</option>
               <option value="romantic">Romantic Escape — 2 guests, $399</option>
-              <option value="small-group">Small Group — 3–6 guests, $175/person</option>
-              <option value="large-group">Large Group — 7–10 guests, $165/person</option>
+              <option value="memory-pkg">Sedona Memory Package — 2 guests + photography, $775</option>
+              <option value="small-group">The Gathering — 3–6 guests, $175/person</option>
+              <option value="large-group">The Celebration — 7–10 guests, $165/person</option>
               <option value="private-event">Private Event — 11+ guests, request quote</option>
               <option value="solo">Solo Experience — 1 guest, $299</option>
             </select>
           </div>
           <div class="form-group">
             <label for="guests">Number of Guests</label>
-            <select id="guests" name="guest_count">
+            <select id="guests" name="guest_count" onchange="updatePriceSummary()">
               <option value="">Select experience first</option>
             </select>
+          </div>
+        </div>
+
+        <!-- Live Price Summary -->
+        <div class="price-summary" id="price-summary">
+          <div id="summary-lines"></div>
+          <div class="price-summary-total">
+            <span class="label">Estimated Total</span>
+            <span class="amount" id="summary-total">—</span>
           </div>
         </div>
         <div class="form-group">
@@ -1215,49 +1349,106 @@
 </script>
 
 <script>
+  const PRICING = {
+    'solo':         { base: 299,  perPerson: 0,   label: 'Solo Experience',         note: '1 guest',          includes: ['75-min canyon concert', 'Sedona Artesian Water'] },
+    'romantic':     { base: 399,  perPerson: 0,   label: 'Romantic Escape',         note: 'For two guests',   includes: ['75-min canyon concert', 'Artisan chocolates', 'Handwritten song dedication card', 'Sedona Artesian Water'] },
+    'memory-pkg':   { base: 775,  perPerson: 0,   label: 'Sedona Memory Package',   note: 'For two guests',   includes: ['Everything in Romantic Escape', 'Professional Sedona photographer', '60-min photography session', '20+ edited photos (5 days)'] },
+    'small-group':  { base: 0,    perPerson: 175, label: 'The Gathering',           note: '3–6 guests',       includes: ['75-min canyon concert', 'Sedona Artesian Water'] },
+    'large-group':  { base: 0,    perPerson: 165, label: 'The Celebration',         note: '7–10 guests',      includes: ['75-min canyon concert', 'Sedona Artesian Water'] },
+    'private-event':{ base: 0,    perPerson: 0,   label: 'Private Event',           note: '11+ guests',       includes: ['Custom quote from Tyler'] },
+  };
+
+  const GUEST_OPTIONS = {
+    'solo':          [{ value: '1',   guests: 1,  label: '1 guest' }],
+    'romantic':      [{ value: '2',   guests: 2,  label: '2 guests' }, { value: '2+1c', guests: 2, children: 1, label: '2 guests + 1 child (6–15)' }, { value: '2+2c', guests: 2, children: 2, label: '2 guests + 2 children (6–15)' }],
+    'memory-pkg':    [{ value: '2',   guests: 2,  label: '2 guests' }, { value: '2+1c', guests: 2, children: 1, label: '2 guests + 1 child (6–15)' }, { value: '2+2c', guests: 2, children: 2, label: '2 guests + 2 children (6–15)' }],
+    'small-group':   [{ value: '3', guests: 3, label: '3 guests' }, { value: '4', guests: 4, label: '4 guests' }, { value: '5', guests: 5, label: '5 guests' }, { value: '6', guests: 6, label: '6 guests' }],
+    'large-group':   [{ value: '7', guests: 7, label: '7 guests' }, { value: '8', guests: 8, label: '8 guests' }, { value: '9', guests: 9, label: '9 guests' }, { value: '10', guests: 10, label: '10 guests' }],
+    'private-event': [{ value: '11+', guests: 11, label: '11 or more guests' }],
+  };
+
+  function formatMoney(n) {
+    return '$' + n.toLocaleString('en-US');
+  }
+
   function updateGuests(experienceType) {
     const guestsSelect = document.getElementById('guests');
     guestsSelect.innerHTML = '';
-
-    const options = {
-      'romantic': [
-        { value: '2', label: '2 guests — $399 (all included)' },
-        { value: '2+1child', label: '2 guests + 1 child (6–15) — $496' },
-        { value: '2+2children', label: '2 guests + 2 children (6–15) — $593' },
-      ],
-      'small-group': [
-        { value: '3', label: '3 guests — $525' },
-        { value: '4', label: '4 guests — $700' },
-        { value: '5', label: '5 guests — $875' },
-        { value: '6', label: '6 guests — $1,050' },
-      ],
-      'large-group': [
-        { value: '7', label: '7 guests — $1,155' },
-        { value: '8', label: '8 guests — $1,320' },
-        { value: '9', label: '9 guests — $1,485' },
-        { value: '10', label: '10 guests — $1,650' },
-      ],
-      'private-event': [
-        { value: '11+', label: '11 or more — Tyler will prepare a custom quote' },
-      ],
-      'solo': [
-        { value: '1', label: '1 guest — $299' },
-      ],
-    };
 
     const placeholder = document.createElement('option');
     placeholder.value = '';
     placeholder.textContent = experienceType ? 'Select guest count' : 'Select experience first';
     guestsSelect.appendChild(placeholder);
 
-    if (options[experienceType]) {
-      options[experienceType].forEach(opt => {
-        const el = document.createElement('option');
-        el.value = opt.value;
-        el.textContent = opt.label;
-        guestsSelect.appendChild(el);
-      });
+    const opts = GUEST_OPTIONS[experienceType] || [];
+    opts.forEach(opt => {
+      const el = document.createElement('option');
+      el.value = opt.value;
+      // append price to label
+      const p = PRICING[experienceType];
+      let price = '';
+      if (p.perPerson > 0) price = ' — ' + formatMoney(p.perPerson * opt.guests);
+      else if (p.base > 0) {
+        let total = p.base + (opt.children || 0) * 97;
+        price = ' — ' + formatMoney(total);
+      }
+      el.textContent = opt.label + price;
+      guestsSelect.appendChild(el);
+    });
+
+    // hide summary when experience changes
+    document.getElementById('price-summary').classList.remove('visible');
+  }
+
+  function updatePriceSummary() {
+    const expType = document.getElementById('experience').value;
+    const guestVal = document.getElementById('guests').value;
+    const summaryBox = document.getElementById('price-summary');
+    const linesEl = document.getElementById('summary-lines');
+    const totalEl = document.getElementById('summary-total');
+
+    if (!expType || !guestVal) { summaryBox.classList.remove('visible'); return; }
+
+    const p = PRICING[expType];
+    const opts = GUEST_OPTIONS[expType] || [];
+    const selectedOpt = opts.find(o => o.value === guestVal);
+    if (!selectedOpt) { summaryBox.classList.remove('visible'); return; }
+
+    let lines = [];
+    let total = 0;
+
+    if (expType === 'private-event') {
+      linesEl.innerHTML = '<div class="price-summary-row"><span>Custom quote</span><span>Tyler will reach out</span></div>';
+      totalEl.textContent = 'Custom';
+      summaryBox.classList.add('visible');
+      return;
     }
+
+    if (p.perPerson > 0) {
+      const subtotal = p.perPerson * selectedOpt.guests;
+      lines.push([selectedOpt.guests + ' guests × ' + formatMoney(p.perPerson), formatMoney(subtotal)]);
+      total += subtotal;
+    } else {
+      lines.push([p.label, formatMoney(p.base)]);
+      total += p.base;
+    }
+
+    if (selectedOpt.children) {
+      const childTotal = selectedOpt.children * 97;
+      lines.push([selectedOpt.children + ' child' + (selectedOpt.children > 1 ? 'ren' : '') + ' (6–15) × $97', formatMoney(childTotal)]);
+      total += childTotal;
+    }
+
+    // includes summary line
+    if (p.includes && p.includes.length) {
+      lines.push(['Includes', p.includes.slice(0, 2).join(' · ')]);
+    }
+
+    linesEl.innerHTML = lines.map(([k, v]) =>
+      `<div class="price-summary-row"><span>${k}</span><span>${v}</span></div>`
+    ).join('');
+    totalEl.textContent = formatMoney(total);
+    summaryBox.classList.add('visible');
   }
 </script>
 
