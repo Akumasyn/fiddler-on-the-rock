@@ -1,0 +1,19 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/epk/$1",
+      "has": [{ "type": "host", "value": "epk.fiddlerontherock.com" }]
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/serenades/$1",
+      "has": [{ "type": "host", "value": "serenades.fiddlerontherock.com" }]
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/packages/$1",
+      "has": [{ "type": "host", "value": "packages.fiddlerontherock.com" }]
+    }
+  ]
+}
