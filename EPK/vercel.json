@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "name": "fotr-epk",
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "images/**", "use": "@vercel/static" }
+  ]
+}

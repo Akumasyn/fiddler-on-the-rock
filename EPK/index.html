@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tyler Carson — Electronic Press Kit | Fiddler on the Rock</title>
+  <meta name="description" content="Official EPK for Tyler Carson — One-Man Symphony, Fiddler on the Rock. Featured on CBS Mornings. Available for venues, festivals, and events worldwide." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0B0D12;
+      --surface:  #141720;
+      --surface2: #1e2130;
+      --gold:     #C8A96E;
+      --gold-lt:  #e0c98a;
+      --cream:    #F5F0E8;
+      --muted:    #8a8fa8;
+      --text:     #d8d4cc;
+      --serif:    'Cormorant Garamond', Georgia, serif;
+      --sans:     'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    /* ── NAV ─────────────────────────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; height: 64px;
+      background: rgba(11,13,18,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200,169,110,0.15);
+    }
+    .nav-name { font-family: var(--serif); font-size: 1.1rem; color: var(--cream); letter-spacing: 0.04em; }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a { font-family: var(--sans); font-size: 0.8rem; font-weight: 500; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      font-family: var(--sans); font-size: 0.78rem; font-weight: 700;
+      color: var(--bg); background: var(--gold);
+      padding: 8px 20px; border-radius: 2px; text-decoration: none;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-lt); }
+
+    /* ── HERO ────────────────────────────────────────────────────────────── */
+    .hero {
+      position: relative; height: 100vh; min-height: 640px;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-img {
+      position: absolute; inset: 0;
+      background: url('images/WDS_0117.jpg') center 20% / cover no-repeat;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(11,13,18,0.1) 0%, rgba(11,13,18,0.3) 40%, rgba(11,13,18,0.85) 80%, rgba(11,13,18,1) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      width: 100%; padding: 0 80px 80px;
+      max-width: 1100px;
+    }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--sans); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+    .hero h1 {
+      font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 600; color: var(--cream); line-height: 1.05;
+      margin-bottom: 12px;
+    }
+    .hero-tagline {
+      font-family: var(--serif); font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      font-style: italic; color: var(--gold-lt); margin-bottom: 32px;
+    }
+    .hero-badges { display: flex; gap: 16px; flex-wrap: wrap; }
+    .badge {
+      font-family: var(--sans); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px 14px; border: 1px solid rgba(200,169,110,0.4);
+      color: var(--gold); border-radius: 2px;
+    }
+
+    /* ── SECTION WRAPPER ─────────────────────────────────────────────────── */
+    section { padding: 100px 80px; max-width: 1200px; margin: 0 auto; }
+    .section-full { padding: 100px 80px; }
+    .label {
+      font-family: var(--sans); font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold);
+      margin-bottom: 16px; display: flex; align-items: center; gap: 12px;
+    }
+    .label::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+    h2 {
+      font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600; color: var(--cream); line-height: 1.15; margin-bottom: 24px;
+    }
+    h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; color: var(--cream); margin-bottom: 8px; }
+    p { color: var(--text); margin-bottom: 16px; font-size: 0.975rem; }
+
+    /* ── CREDENTIAL STRIP ────────────────────────────────────────────────── */
+    .credential-strip {
+      background: var(--surface);
+      border-top: 1px solid rgba(200,169,110,0.12);
+      border-bottom: 1px solid rgba(200,169,110,0.12);
+      padding: 32px 80px;
+    }
+    .credential-grid {
+      display: flex; gap: 0; flex-wrap: wrap;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .cred-item {
+      flex: 1; min-width: 160px;
+      padding: 16px 24px;
+      border-right: 1px solid rgba(200,169,110,0.12);
+      text-align: center;
+    }
+    .cred-item:last-child { border-right: none; }
+    .cred-num { font-family: var(--serif); font-size: 2.2rem; font-weight: 600; color: var(--gold); line-height: 1; margin-bottom: 4px; }
+    .cred-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+    /* ── BIO ─────────────────────────────────────────────────────────────── */
+    .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .bio-img {
+      width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top;
+      border-radius: 2px;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    }
+
+    /* ── DIVIDER ─────────────────────────────────────────────────────────── */
+    .divider {
+      max-width: 1200px; margin: 0 auto;
+      height: 1px; background: rgba(200,169,110,0.12);
+    }
+
+    /* ── QUOTES ──────────────────────────────────────────────────────────── */
+    .quotes-bg { background: var(--surface); }
+    .quotes-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
+    }
+    .quote-card {
+      padding: 32px; border: 1px solid rgba(200,169,110,0.15);
+      border-top: 3px solid var(--gold);
+      background: var(--surface2); border-radius: 2px;
+    }
+    .quote-mark { font-family: var(--serif); font-size: 3rem; color: var(--gold); line-height: 0.5; margin-bottom: 16px; display: block; }
+    .quote-text { font-family: var(--serif); font-size: 1.05rem; font-style: italic; color: var(--cream); line-height: 1.6; margin-bottom: 20px; }
+    .quote-attr { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); }
+    .quote-role { font-size: 0.72rem; color: var(--muted); margin-top: 2px; font-weight: 400; letter-spacing: 0; text-transform: none; }
+
+    /* ── COLLABORATIONS ──────────────────────────────────────────────────── */
+    .collab-feature {
+      background: var(--surface); border: 1px solid rgba(200,169,110,0.2);
+      border-left: 4px solid var(--gold);
+      padding: 32px 40px; margin-bottom: 40px; border-radius: 2px;
+    }
+    .collab-feature p { font-family: var(--serif); font-size: 1.2rem; font-style: italic; color: var(--cream); margin-bottom: 8px; }
+    .collab-feature cite { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); font-style: normal; }
+    .collab-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px;
+    }
+    .collab-name {
+      padding: 12px 16px; background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06); border-radius: 2px;
+      font-size: 0.875rem; color: var(--cream); font-weight: 500;
+    }
+
+    /* ── MEDIA CREDENTIALS ───────────────────────────────────────────────── */
+    .media-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px;
+    }
+    .media-card {
+      padding: 24px; background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06); border-radius: 2px;
+    }
+    .media-card-category { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+    .media-card-name { font-family: var(--serif); font-size: 1.1rem; color: var(--cream); font-weight: 600; margin-bottom: 4px; }
+    .media-card-detail { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── VIDEO ───────────────────────────────────────────────────────────── */
+    .video-bg { background: var(--surface); }
+    .video-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 2px; }
+    .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .video-label { font-size: 0.8rem; font-weight: 600; color: var(--muted); margin-top: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* ── PHOTO GALLERY ───────────────────────────────────────────────────── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+    .gallery-item { overflow: hidden; border-radius: 2px; position: relative; }
+    .gallery-item.wide { grid-column: span 2; }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-img {
+      width: 100%; height: 100%; min-height: 220px;
+      object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .gallery-item:hover .gallery-img { transform: scale(1.03); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: rgba(11,13,18,0); transition: background 0.3s;
+      display: flex; align-items: flex-end; padding: 16px;
+    }
+    .gallery-item:hover .gallery-overlay { background: rgba(11,13,18,0.4); }
+    .gallery-dl {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--cream); text-decoration: none;
+      background: rgba(200,169,110,0.85); padding: 5px 12px; border-radius: 2px;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-dl { opacity: 1; }
+
+    /* ── VENUE FIT ───────────────────────────────────────────────────────── */
+    .venue-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .venue-card {
+      padding: 28px; background: var(--surface);
+      border: 1px solid rgba(200,169,110,0.1); border-radius: 2px;
+    }
+    .venue-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .venue-title { font-family: var(--serif); font-size: 1.1rem; color: var(--cream); font-weight: 600; margin-bottom: 6px; }
+    .venue-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── CONTACT ─────────────────────────────────────────────────────────── */
+    .contact-bg {
+      background: var(--surface);
+      border-top: 1px solid rgba(200,169,110,0.12);
+    }
+    .contact-inner {
+      max-width: 760px; margin: 0 auto;
+      text-align: center; padding: 100px 80px;
+    }
+    .contact-inner h2 { margin-bottom: 16px; }
+    .contact-inner p { margin-bottom: 40px; }
+    .contact-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
+    .contact-item { text-align: center; }
+    .contact-item-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .contact-item-val { font-size: 0.95rem; color: var(--cream); }
+    .btn-primary {
+      display: inline-block; font-family: var(--sans); font-size: 0.8rem;
+      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--bg); background: var(--gold);
+      padding: 16px 40px; border-radius: 2px; text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold-lt); }
+    .btn-secondary {
+      display: inline-block; font-family: var(--sans); font-size: 0.8rem;
+      font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold);
+      padding: 16px 40px; border-radius: 2px; text-decoration: none;
+      transition: all 0.2s; margin-left: 16px;
+    }
+    .btn-secondary:hover { background: rgba(200,169,110,0.1); }
+
+    /* ── FOOTER ──────────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid rgba(200,169,110,0.1);
+      padding: 32px 80px;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 0.75rem; color: var(--muted);
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    /* ── CAVE SECTION ────────────────────────────────────────────────────── */
+    .cave-section {
+      position: relative; min-height: 500px;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .cave-img {
+      position: absolute; inset: 0;
+      background: url('images/CAVE.jpg') center center / cover no-repeat;
+    }
+    .cave-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(11,13,18,0.92) 0%, rgba(11,13,18,0.7) 60%, rgba(11,13,18,0.3) 100%);
+    }
+    .cave-content {
+      position: relative; z-index: 2;
+      padding: 80px;
+      max-width: 600px;
+    }
+    .cave-content h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+
+    /* ── FILM FESTIVAL ───────────────────────────────────────────────────── */
+    .festival-list { display: flex; flex-wrap: wrap; gap: 12px; }
+    .festival-pill {
+      padding: 8px 16px; background: var(--surface);
+      border: 1px solid rgba(200,169,110,0.2);
+      border-radius: 2px; font-size: 0.8rem; color: var(--cream);
+    }
+    .festival-pill.winner { border-color: var(--gold); color: var(--gold); }
+
+    /* ── SCROLL HINT ─────────────────────────────────────────────────────── */
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0.5;
+    }
+    .scroll-hint span { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+    .scroll-line { width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gold), transparent); }
+
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      nav .nav-links a:not(.nav-cta) { display: none; }
+      section, .section-full { padding: 60px 24px; }
+      .credential-strip { padding: 24px; }
+      .credential-grid { gap: 0; }
+      .bio-grid, .video-grid { grid-template-columns: 1fr; }
+      .quotes-grid, .venue-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-item.wide, .gallery-item.tall { grid-column: span 1; grid-row: span 1; }
+      .hero-content { padding: 0 24px 60px; }
+      .cave-content { padding: 60px 24px; max-width: 100%; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+      .contact-inner { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────────────── -->
+<nav>
+  <span class="nav-name">Tyler Carson</span>
+  <div class="nav-links">
+    <a href="#bio">Bio</a>
+    <a href="#media">Media</a>
+    <a href="#video">Watch</a>
+    <a href="#photos">Press Photos</a>
+    <a href="#contact" class="nav-cta">Book Tyler</a>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-img"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Electronic Press Kit</div>
+    <h1>Tyler Carson</h1>
+    <div class="hero-tagline">One-Man Symphony &nbsp;·&nbsp; Fiddler on the Rock &nbsp;·&nbsp; Sedona, AZ</div>
+    <div class="hero-badges">
+      <span class="badge">CBS Mornings — Featured Twice</span>
+      <span class="badge">CBS Best of Year — Dolly Parton Issue</span>
+      <span class="badge">Sedona Int'l Film Festival</span>
+      <span class="badge">Victoria Symphony Soloist</span>
+      <span class="badge">Living Music — Award-Winning Documentary</span>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</div>
+
+<!-- ── CREDENTIAL STRIP ──────────────────────────────────────────────────── -->
+<div class="credential-strip">
+  <div class="credential-grid">
+    <div class="cred-item">
+      <div class="cred-num">2×</div>
+      <div class="cred-label">CBS Mornings Features</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-num">250K</div>
+      <div class="cred-label">Fans by Age 11</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-num">6+</div>
+      <div class="cred-label">Film Festival Awards</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-num">20+</div>
+      <div class="cred-label">Years Performing</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-num">4</div>
+      <div class="cred-label">Countries — National TV</div>
+    </div>
+    <div class="cred-item">
+      <div class="cred-num">∞</div>
+      <div class="cred-label">Genres. One Violin.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── BIO ───────────────────────────────────────────────────────────────── -->
+<section id="bio">
+  <div class="bio-grid">
+    <div>
+      <div class="label">The Artist</div>
+      <h2>One violin.<br/>An entire orchestra.</h2>
+      <p>Tyler Carson defies every expectation. Classically trained, genre-blind, and performing solo in Sedona's most breathtaking landscapes — he fuses live looping, vocals, and storytelling to create something that sounds like an entire orchestra. Led Zeppelin. Taylor Swift. Original compositions that make the red rocks feel alive.</p>
+      <p>A former child star who performed for over 250,000 people by age 11, Tyler reemerged as a visionary artist after a profound healing journey that reshaped his music and mission. That story is captured in the award-winning documentary <em>Living Music</em> — and told twice on CBS Mornings, including their prestigious Best of the Year issue alongside Dolly Parton.</p>
+      <p>Now based in Sedona, he leads the acclaimed concert series <em>Fiddler on the Rock — One Man Symphony</em>, drawing sold-out crowds Thursday evenings in the red rocks and Saturday nights at Sedona Dances Headquarters. His private violin experiences — Sedona Serenades — bring the music directly to small groups in canyon locations that most visitors never find.</p>
+      <p style="font-family: var(--serif); font-style: italic; font-size: 1.05rem; color: var(--cream); margin-top: 24px;">"Sheer brilliance! Tyler is a musical genius."<br/><span style="font-style: normal; font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold);">— Patrick Schweiss, Executive Director, Sedona International Film Festival</span></p>
+    </div>
+    <img
+      class="bio-img"
+      src="images/WDS_0055.jpg"
+      alt="Tyler Carson with violin in Sedona red rock landscape"
+    />
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── QUOTES ────────────────────────────────────────────────────────────── -->
+<div class="quotes-bg">
+  <section>
+    <div class="label">What They Say</div>
+    <div class="quotes-grid">
+      <div class="quote-card">
+        <span class="quote-mark">"</span>
+        <p class="quote-text">Hearing Tyler's music is like experiencing a force of nature.</p>
+        <div class="quote-attr">Lenedra J. Carroll</div>
+        <div class="quote-role">Manager, Global Pop Star Jewel</div>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">"</span>
+        <p class="quote-text">Talent matched by only the top international stars.</p>
+        <div class="quote-attr">Dennis Brown</div>
+        <div class="quote-role">Event Entertainment New Zealand &amp; Australia</div>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">"</span>
+        <p class="quote-text">Tyler's energy is absolutely infectious — such an inspiring young man.</p>
+        <div class="quote-attr">Natalie Morales</div>
+        <div class="quote-role">CBS Mornings Anchor</div>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">"</span>
+        <p class="quote-text">EXTRAORDINARY doesn't even begin to describe this multi-talented performer, composer, and musical genius.</p>
+        <div class="quote-attr">Patrick Schweiss</div>
+        <div class="quote-role">Executive Director, Sedona International Film Festival</div>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">"</span>
+        <p class="quote-text">That was so much fun! You're such a great player!</p>
+        <div class="quote-attr">Lindsey Stirling</div>
+        <div class="quote-role">Billboard Chart-Topping Violinist</div>
+      </div>
+      <div class="quote-card">
+        <span class="quote-mark">"</span>
+        <p class="quote-text">I feel so comfortable working with these two Carsons!</p>
+        <div class="quote-attr">Ed McMahon</div>
+        <div class="quote-role">Jerry Lewis MDA Telethon</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── CAVE / EXPERIENCE ──────────────────────────────────────────────────── -->
+<div class="cave-section">
+  <div class="cave-img"></div>
+  <div class="cave-overlay"></div>
+  <div class="cave-content">
+    <div class="label">The Setting</div>
+    <h2>No stage. No amplification. Just Sedona.</h2>
+    <p style="color: var(--text); margin-bottom: 8px;">Tyler performs in locations most visitors never find — private red rock canyons, natural formations, and the landscape itself as his stage. The silence between notes sounds different out here. So does the music.</p>
+    <p style="color: var(--gold); font-family: var(--serif); font-style: italic; font-size: 1rem;">Available for nature-centric venues, national and state parks, wellness festivals, and destination events.</p>
+  </div>
+</div>
+
+<!-- ── MEDIA CREDENTIALS ──────────────────────────────────────────────────── -->
+<section id="media">
+  <div class="label">Media &amp; Press</div>
+  <h2>National coverage.<br/>International reach.</h2>
+  <div class="media-grid" style="margin-bottom: 60px;">
+    <div class="media-card">
+      <div class="media-card-category">Television — USA</div>
+      <div class="media-card-name">CBS Mornings</div>
+      <div class="media-card-detail">Featured twice — including Best of the Year alongside Dolly Parton</div>
+    </div>
+    <div class="media-card">
+      <div class="media-card-category">Television — USA</div>
+      <div class="media-card-name">PBS</div>
+      <div class="media-card-detail">Feature with Impossible Bird</div>
+    </div>
+    <div class="media-card">
+      <div class="media-card-category">Television — UK</div>
+      <div class="media-card-name">ITV</div>
+      <div class="media-card-detail">National UK television feature</div>
+    </div>
+    <div class="media-card">
+      <div class="media-card-category">Television — Germany</div>
+      <div class="media-card-name">ZDF</div>
+      <div class="media-card-detail">German national television broadcast</div>
+    </div>
+    <div class="media-card">
+      <div class="media-card-category">Print — Regional</div>
+      <div class="media-card-name">Discover the Region Phoenix</div>
+      <div class="media-card-detail">Cover story + 8-page feature — alongside Maynard James Keenan (Tool)</div>
+    </div>
+    <div class="media-card">
+      <div class="media-card-category">Print — Local</div>
+      <div class="media-card-name">Red Rock News</div>
+      <div class="media-card-detail">Feature profile — "Pirates, Lions, and the Rock &amp; Roll Fiddle Player"</div>
+    </div>
+    <div class="media-card">
+      <div class="media-card-category">Live Events</div>
+      <div class="media-card-name">Jerry Lewis MDA Telethon</div>
+      <div class="media-card-detail">National broadcast performance</div>
+    </div>
+    <div class="media-card">
+      <div class="media-card-category">International</div>
+      <div class="media-card-name">Auroville, India</div>
+      <div class="media-card-detail">Featured concert artist at Pitanga Hall — Matrimandir grounds</div>
+    </div>
+  </div>
+
+  <!-- Film Festivals -->
+  <div class="label">Documentary — Living Music</div>
+  <h3 style="margin-bottom: 16px; font-size: 1.3rem;">Award-winning documentary about Tyler's healing journey and artistic rebirth.</h3>
+  <div class="festival-list" style="margin-bottom: 0;">
+    <span class="festival-pill winner">🏆 Illuminate Film Festival — Winner</span>
+    <span class="festival-pill winner">🏆 Prescott Film Festival — Winner</span>
+    <span class="festival-pill">Madrid International Film Festival — Nominated Best Director</span>
+    <span class="festival-pill">Sebastopol Documentary Film Festival</span>
+    <span class="festival-pill">St. Louis International Film Festival</span>
+    <span class="festival-pill">LA Indie Film Festival</span>
+    <span class="festival-pill">Bend Film Festival</span>
+    <span class="festival-pill">Twin Falls Film Festival</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── COLLABORATIONS ─────────────────────────────────────────────────────── -->
+<section>
+  <div class="label">Notable Collaborations</div>
+  <h2>A career built alongside legends.</h2>
+  <div class="collab-feature">
+    <p>"That was so much fun! You're such a great player!"</p>
+    <cite>— Lindsey Stirling, Billboard-charting violinist | Collaborated live + on video</cite>
+  </div>
+  <div class="collab-grid">
+    <div class="collab-name">Lindsey Stirling</div>
+    <div class="collab-name">Deva Premal &amp; Mitten</div>
+    <div class="collab-name">The Chieftains</div>
+    <div class="collab-name">Irish Rovers</div>
+    <div class="collab-name">Brooks &amp; Dunn</div>
+    <div class="collab-name">Savion Glover</div>
+    <div class="collab-name">Ashley MacIsaac</div>
+    <div class="collab-name">Alan Doyle (Great Big Sea)</div>
+    <div class="collab-name">Neil Casal (Ryan Adams Band)</div>
+    <div class="collab-name">Kendel Carson (Shania Twain)</div>
+    <div class="collab-name">Sandy Kelly</div>
+    <div class="collab-name">Victoria Symphony Orchestra</div>
+  </div>
+</section>
+
+<!-- ── VIDEO ──────────────────────────────────────────────────────────────── -->
+<div class="video-bg">
+  <section id="video">
+    <div class="label">Watch</div>
+    <h2>See it for yourself.</h2>
+    <div class="video-grid">
+      <div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/Uh0ckhgVxJM" title="Tyler Carson — CBS Mornings Feature" allowfullscreen></iframe>
+        </div>
+        <div class="video-label">CBS Mornings — National Feature</div>
+      </div>
+      <div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube.com/embed/WE43jRY5nGE" title="Tyler Carson with Lindsey Stirling" allowfullscreen></iframe>
+        </div>
+        <div class="video-label">With Lindsey Stirling</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── PRESS PHOTOS ───────────────────────────────────────────────────────── -->
+<section id="photos">
+  <div class="label">Press Photos</div>
+  <h2>Photography by Greg Bernstein. High-res available.</h2>
+  <p style="margin-bottom: 40px; color: var(--muted);">Hover to download. All photos licensed for press use with credit: <em>Photo: Greg Bernstein</em></p>
+  <div class="gallery-grid">
+    <div class="gallery-item tall">
+      <img class="gallery-img" src="images/WDS_0117.jpg" alt="Tyler Carson playing violin on Sedona red rocks" />
+      <div class="gallery-overlay">
+        <a class="gallery-dl" href="images/WDS_0117.jpg" download>↓ Download</a>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-img" src="images/WDS_0055.jpg" alt="Tyler Carson in Sedona landscape" />
+      <div class="gallery-overlay">
+        <a class="gallery-dl" href="images/WDS_0055.jpg" download>↓ Download</a>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-img" src="images/IMG_3895.jpg" alt="Tyler Carson with electric violin" />
+      <div class="gallery-overlay">
+        <a class="gallery-dl" href="images/IMG_3895.jpg" download>↓ Download</a>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-img" src="images/WDS_0172.jpg" alt="Tyler Carson performing" />
+      <div class="gallery-overlay">
+        <a class="gallery-dl" href="images/WDS_0172.jpg" download>↓ Download</a>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-img" src="images/WDS_0200.jpg" alt="Tyler Carson Sedona" />
+      <div class="gallery-overlay">
+        <a class="gallery-dl" href="images/WDS_0200.jpg" download>↓ Download</a>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-img" src="images/CAVE.jpg" alt="Tyler Carson in Secret Cave, Sedona" />
+      <div class="gallery-overlay">
+        <a class="gallery-dl" href="images/CAVE.jpg" download>↓ Download</a>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <img class="gallery-img" src="images/WDS_0245.jpg" alt="Tyler Carson" />
+      <div class="gallery-overlay">
+        <a class="gallery-dl" href="images/WDS_0245.jpg" download>↓ Download</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VENUE FIT ───────────────────────────────────────────────────────────── -->
+<div class="quotes-bg">
+  <section>
+    <div class="label">Who Books Tyler</div>
+    <h2>He performs where music means something.</h2>
+    <div class="venue-grid">
+      <div class="venue-card">
+        <div class="venue-icon">🏛️</div>
+        <div class="venue-title">Theaters &amp; PACs</div>
+        <div class="venue-desc">Full concert production with looping, storytelling, and audience journey. Seats 200–2,000+.</div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-icon">🌲</div>
+        <div class="venue-title">Nature &amp; Outdoor Venues</div>
+        <div class="venue-desc">National parks, state parks, amphitheaters. The landscape amplifies everything Tyler does.</div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-icon">🧘</div>
+        <div class="venue-title">Wellness &amp; Spiritual Festivals</div>
+        <div class="venue-desc">Yoga festivals, healing events, consciousness gatherings. Living Music meets Living Experience.</div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-icon">☀️</div>
+        <div class="venue-title">Summer Concert Series</div>
+        <div class="venue-desc">Parks, HOAs, destination resorts, downtown series. High-impact, self-contained production.</div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-icon">✝️</div>
+        <div class="venue-title">Churches &amp; Faith Communities</div>
+        <div class="venue-desc">Deeply spiritual programming that transcends denomination. Has performed in faith settings worldwide.</div>
+      </div>
+      <div class="venue-card">
+        <div class="venue-icon">🥂</div>
+        <div class="venue-title">Private &amp; Corporate Events</div>
+        <div class="venue-desc">Intimate private concerts, destination weddings, corporate retreats. Custom experiences available.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── CONTACT ────────────────────────────────────────────────────────────── -->
+<div class="contact-bg" id="contact">
+  <div class="contact-inner">
+    <div class="label" style="justify-content: center;">Book Tyler</div>
+    <h2>Let's create something unforgettable.</h2>
+    <p>For booking inquiries, availability, technical requirements, and custom event proposals — reach out directly. Tyler is available for domestic and international bookings.</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-item-label">Booking &amp; Management</div>
+        <div class="contact-item-val">Eli Sayers — Identity Override</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Email</div>
+        <div class="contact-item-val"><a href="mailto:iam@IdentityOverride.com" style="color: var(--cream); text-decoration:none;">iam@IdentityOverride.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Website</div>
+        <div class="contact-item-val"><a href="https://fiddlerontherock.com" style="color: var(--cream); text-decoration:none;">fiddlerontherock.com</a></div>
+      </div>
+    </div>
+    <div>
+      <a href="mailto:iam@IdentityOverride.com?subject=Booking Inquiry — Tyler Carson" class="btn-primary">Send Booking Inquiry</a>
+      <a href="https://fiddlerontherock.com" class="btn-secondary">Visit Website</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────────── -->
+<footer>
+  <span>© 2026 Tyler Carson / Fiddler on the Rock. All rights reserved.</span>
+  <span>Management: <a href="mailto:iam@IdentityOverride.com">Identity Override</a> &nbsp;·&nbsp; <a href="https://fiddlerontherock.com">fiddlerontherock.com</a></span>
+</footer>
+
+</body>
+</html>
