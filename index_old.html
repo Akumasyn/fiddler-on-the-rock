@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Experience — Fiddler on the Rock</title>
+<title>Fiddler on the Rock — Site Directory</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -17,14 +17,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 3rem 2rem;
+    padding: 2rem;
   }
 
-  .container { max-width: 560px; width: 100%; }
+  .container {
+    max-width: 480px;
+    width: 100%;
+  }
 
   .eyebrow {
+    font-family: 'DM Sans', sans-serif;
     font-size: 0.7rem;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #9a8fa8;
     margin-bottom: 0.5rem;
@@ -32,25 +36,23 @@
 
   h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: 300;
-    margin-bottom: 0.5rem;
-  }
-
-  .subtitle {
-    font-size: 0.85rem;
-    color: #9a8fa8;
     margin-bottom: 2.5rem;
-    line-height: 1.6;
+    color: #F7EFE4;
   }
 
-  .versions { display: flex; flex-direction: column; gap: 0.75rem; }
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 
   a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.1rem 1.25rem;
+    padding: 1rem 1.25rem;
     border: 1px solid rgba(247, 239, 228, 0.12);
     color: #F7EFE4;
     text-decoration: none;
@@ -62,54 +64,58 @@
     background: rgba(232, 151, 26, 0.05);
   }
 
-  .version-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #E8971A;
-    margin-bottom: 0.25rem;
+  .link-title {
+    font-size: 0.95rem;
+    font-weight: 400;
   }
 
-  .version-title { font-size: 1rem; font-weight: 400; }
-
-  .arrow { color: #9a8fa8; font-size: 0.85rem; flex-shrink: 0; margin-left: 1rem; }
-
-  .coming-soon {
-    opacity: 0.4;
-    pointer-events: none;
-    cursor: default;
+  .link-desc {
+    font-size: 0.75rem;
+    color: #9a8fa8;
+    margin-top: 0.2rem;
   }
 
-  .coming-soon .version-label { color: #9a8fa8; }
+  .arrow {
+    color: #9a8fa8;
+    font-size: 0.8rem;
+  }
+
+  .internal {
+    border-style: dashed;
+    opacity: 0.6;
+  }
 </style>
 </head>
 <body>
 <div class="container">
   <p class="eyebrow">Fiddler on the Rock</p>
-  <h1>The Experience</h1>
-  <p class="subtitle">Design versions — select to preview.</p>
-
-  <div class="versions">
-    <a href="experience_v01.html">
+  <h1>Site Directory</h1>
+  <div class="links">
+    <a href="/epk/">
       <div>
-        <div class="version-label">Version 01</div>
-        <div class="version-title">Red Rock Nature Concert</div>
+        <div class="link-title">EPK</div>
+        <div class="link-desc">Electronic Press Kit → epk.fiddlerontherock.com</div>
       </div>
       <span class="arrow">→</span>
     </a>
-
-    <a href="experience_v02.html">
+    <a href="/serenades/">
       <div>
-        <div class="version-label">Version 02</div>
-        <div class="version-title">Complete Strategic Package</div>
+        <div class="link-title">Sedona Serenades</div>
+        <div class="link-desc">Private romantic violin concert → serenades.fiddlerontherock.com</div>
       </div>
       <span class="arrow">→</span>
     </a>
-
-    <a href="experience_v03.html">
+    <a href="/experience/">
       <div>
-        <div class="version-label">Version 03</div>
-        <div class="version-title">Red Rock Nature Concert</div>
+        <div class="link-title">The Experience</div>
+        <div class="link-desc">Concert packages → packages.fiddlerontherock.com</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+    <a href="/strategy/" class="internal">
+      <div>
+        <div class="link-title">Strategy</div>
+        <div class="link-desc">Internal</div>
       </div>
       <span class="arrow">→</span>
     </a>
