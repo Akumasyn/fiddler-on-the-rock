@@ -3,1044 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fiddler on the Rock — Tyler Carson | Private Violin Concerts in Sedona, AZ</title>
-<meta name="description" content="Tyler Carson performs private live violin concerts in the red rock wilderness of Sedona, AZ. As seen on CBS Mornings. Book a private concert or serenade for your couple, group, or event.">
-<meta property="og:title" content="Fiddler on the Rock — Private Violin Concerts in Sedona">
-<meta property="og:description" content="A private live violin concert in the red rock canyons of Sedona. Intimate. Unforgettable. Tyler Carson, as seen on CBS Mornings.">
-<meta property="og:image" content="images/WDS_0117.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<title>Fiddler on the Rock — Site Directory</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --ink:        #0A0810;
-  --ink-soft:   #140f1a;
-  --ink-mid:    #1e1828;
-  --gold:       #E8971A;
-  --gold-light: #f0b84a;
-  --rose:       #C4503A;
-  --rose-soft:  #9B3A28;
-  --dusk:       #6B3060;
-  --cream:      #F7EFE4;
-  --cream-soft: #EDE0CE;
-  --muted:      #9a8fa8;
-}
+  body {
+    background: #0A0810;
+    color: #F7EFE4;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    padding: 4rem 2rem;
+  }
 
-html { scroll-behavior: smooth; }
+  .container { max-width: 640px; margin: 0 auto; }
 
-body {
-  background: var(--ink);
-  color: var(--cream);
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #9a8fa8;
+    margin-bottom: 0.5rem;
+  }
 
-/* ── NAV ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 48px;
-  background: linear-gradient(to bottom, rgba(10,8,16,0.92) 0%, transparent 100%);
-}
-.nav-wordmark {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  color: var(--cream);
-  text-decoration: none;
-}
-.nav-wordmark em {
-  font-style: italic;
-  color: var(--gold);
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
-}
-.nav-links a {
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(247,239,228,0.7);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--cream); }
-.nav-cta {
-  font-size: 0.7rem !important;
-  letter-spacing: 0.14em !important;
-  text-transform: uppercase !important;
-  background: var(--gold) !important;
-  color: var(--ink) !important;
-  padding: 8px 20px !important;
-  transition: opacity 0.2s !important;
-}
-.nav-cta:hover { opacity: 0.85 !important; color: var(--ink) !important; }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 3rem;
+  }
 
-/* ── HERO ── */
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background-image: url('images/WDS_0117.jpg');
-  background-size: cover;
-  background-position: center 20%;
-  transform: scale(1.03);
-  transition: transform 8s ease-out;
-}
-.hero-bg.loaded { transform: scale(1); }
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(10,8,16,0.15) 0%,
-    rgba(10,8,16,0.05) 35%,
-    rgba(10,8,16,0.55) 65%,
-    rgba(10,8,16,0.92) 100%
-  );
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 48px 80px;
-}
-.hero-eyebrow {
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.hero-eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 32px;
-  height: 1px;
-  background: var(--gold);
-}
-.hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 7vw, 6.5rem);
-  font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: -0.01em;
-  color: var(--cream);
-  margin-bottom: 28px;
-}
-.hero-title em {
-  font-style: italic;
-  color: var(--gold-light);
-}
-.hero-sub {
-  font-size: 1.05rem;
-  font-weight: 300;
-  color: rgba(247,239,228,0.82);
-  max-width: 520px;
-  line-height: 1.65;
-  margin-bottom: 40px;
-}
-.hero-actions {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.btn-hero-primary {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--ink);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 14px 32px;
-  transition: opacity 0.2s;
-}
-.btn-hero-primary:hover { opacity: 0.85; }
-.btn-hero-ghost {
-  display: inline-block;
-  border: 1px solid rgba(247,239,228,0.35);
-  color: var(--cream);
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 14px 32px;
-  transition: border-color 0.2s, color 0.2s;
-}
-.btn-hero-ghost:hover {
-  border-color: rgba(247,239,228,0.7);
-  color: var(--cream);
-}
-.hero-credential {
-  margin-top: 48px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.68rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(247,239,228,0.45);
-}
-.hero-credential span { color: rgba(247,239,228,0.3); }
+  .section { margin-bottom: 2.5rem; }
 
-/* ── SECTION BASE ── */
-.section-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 48px;
-}
-.section-inner.narrow { max-width: 720px; }
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #9a8fa8;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(247,239,228,0.07);
+  }
 
-section { padding: 100px 0; }
-section.tight { padding: 72px 0; }
+  .link-list { display: flex; flex-direction: column; gap: 2px; margin-top: 0.5rem; }
 
-.section-eyebrow {
-  font-size: 0.68rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 16px;
-}
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  font-weight: 300;
-  line-height: 1.15;
-  color: var(--cream);
-  margin-bottom: 24px;
-}
-.section-title em { font-style: italic; color: var(--gold-light); }
-.section-body {
-  font-size: 1.02rem;
-  color: rgba(247,239,228,0.75);
-  line-height: 1.75;
-  max-width: 600px;
-}
+  a.page-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(247,239,228,0.08);
+    color: #F7EFE4;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
 
-/* ── STATEMENT BAR ── */
-.statement-bar {
-  background: var(--ink-soft);
-  border-top: 1px solid rgba(232,151,26,0.15);
-  border-bottom: 1px solid rgba(232,151,26,0.15);
-  padding: 56px 0;
-}
-.statement-bar .section-inner {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-}
-.statement-line {
-  width: 48px;
-  height: 1px;
-  background: var(--gold);
-  flex-shrink: 0;
-}
-.statement-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1.4rem, 2.8vw, 2rem);
-  font-weight: 300;
-  font-style: italic;
-  color: var(--cream);
-  line-height: 1.4;
-}
-.statement-text strong {
-  font-style: normal;
-  font-weight: 500;
-  color: var(--gold-light);
-}
+  a.page-link:hover {
+    border-color: rgba(232,151,26,0.4);
+    background: rgba(232,151,26,0.04);
+  }
 
-/* ── EXPERIENCES ── */
-.experiences-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-}
-.exp-card {
-  position: relative;
-  height: 580px;
-  overflow: hidden;
-  display: flex;
-  align-items: flex-end;
-  text-decoration: none;
-}
-.exp-card-bg {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.6s ease;
-}
-.exp-card:hover .exp-card-bg { transform: scale(1.04); }
-.exp-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(10,8,16,0.1) 0%, rgba(10,8,16,0.75) 70%, rgba(10,8,16,0.95) 100%);
-  transition: background 0.4s;
-}
-.exp-card:hover .exp-card-overlay {
-  background: linear-gradient(to bottom, rgba(10,8,16,0.15) 0%, rgba(10,8,16,0.8) 65%, rgba(10,8,16,0.97) 100%);
-}
-.exp-card-content {
-  position: relative;
-  z-index: 2;
-  padding: 40px 44px;
-  width: 100%;
-}
-.exp-card-label {
-  font-size: 0.66rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 10px;
-}
-.exp-card-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.2rem;
-  font-weight: 300;
-  line-height: 1.15;
-  color: var(--cream);
-  margin-bottom: 14px;
-}
-.exp-card-title em { font-style: italic; }
-.exp-card-desc {
-  font-size: 0.9rem;
-  color: rgba(247,239,228,0.7);
-  line-height: 1.6;
-  margin-bottom: 24px;
-  max-width: 340px;
-}
-.exp-card-price {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--muted);
-  letter-spacing: 0.05em;
-  margin-bottom: 20px;
-}
-.exp-card-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.7rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold);
-  transition: gap 0.2s;
-}
-.exp-card-cta::after {
-  content: '→';
-  font-size: 1rem;
-  transition: transform 0.2s;
-}
-.exp-card:hover .exp-card-cta { gap: 14px; }
-.exp-card:hover .exp-card-cta::after { transform: translateX(4px); }
+  a.page-link.primary {
+    border-color: rgba(247,239,228,0.14);
+  }
 
-/* Serenades card — rose accent */
-.exp-card.serenades .exp-card-label { color: var(--rose); }
-.exp-card.serenades .exp-card-cta { color: #e07060; }
-.exp-card.serenades .exp-card-bg {
-  background-image: url('images/serenades-hero.jpg');
-}
+  a.page-link.internal {
+    border-style: dashed;
+    opacity: 0.55;
+  }
 
-/* Experience card — gold accent */
-.exp-card.experience .exp-card-bg {
-  background-image: url('images/packages-hero-bg.jpg');
-}
+  .link-left { display: flex; align-items: center; gap: 1rem; }
 
-/* ── INTRO / WHAT THIS IS ── */
-.intro-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.intro-image-wrap {
-  position: relative;
-}
-.intro-image-wrap img {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-.intro-image-accent {
-  position: absolute;
-  bottom: -20px;
-  right: -20px;
-  width: 120px;
-  height: 120px;
-  border: 1px solid rgba(232,151,26,0.3);
-  pointer-events: none;
-}
-.intro-text .section-body {
-  max-width: 100%;
-  margin-bottom: 20px;
-}
-.intro-text .section-body + .section-body {
-  margin-top: 0;
-}
-.intro-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid rgba(247,239,228,0.08);
-}
-.stat-item {}
-.stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.4rem;
-  font-weight: 300;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.stat-label {
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  line-height: 1.4;
-}
+  .version-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #E8971A;
+    min-width: 52px;
+  }
 
-/* ── QUOTE ── */
-.quote-section {
-  background: var(--ink-soft);
-  border-top: 1px solid rgba(247,239,228,0.06);
-}
-.quote-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2px;
-}
-.quote-item {
-  padding: 56px 48px;
-  border-right: 1px solid rgba(247,239,228,0.06);
-}
-.quote-item:last-child { border-right: none; }
-.quote-mark {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 4rem;
-  line-height: 0.6;
-  color: rgba(232,151,26,0.2);
-  margin-bottom: 24px;
-  display: block;
-}
-.quote-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  font-style: italic;
-  font-weight: 300;
-  line-height: 1.55;
-  color: var(--cream);
-  margin-bottom: 20px;
-}
-.quote-attr {
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  text-transform: uppercase;
-}
+  .version-tag.rose { color: #C4503A; }
+  .version-tag.muted { color: #9a8fa8; }
 
-/* ── LOCATIONS ── */
-.locations-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: 56px;
-}
-.location-card {
-  background: var(--ink-soft);
-  border: 1px solid rgba(247,239,228,0.07);
-  padding: 36px;
-  display: flex;
-  gap: 24px;
-}
-.location-icon {
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(232,151,26,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.location-icon svg { width: 20px; height: 20px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
-.location-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.15rem;
-  font-weight: 400;
-  color: var(--cream);
-  margin-bottom: 8px;
-}
-.location-desc {
-  font-size: 0.88rem;
-  color: rgba(247,239,228,0.6);
-  line-height: 1.6;
-}
+  .link-title { font-size: 0.9rem; font-weight: 400; }
+  .link-desc { font-size: 0.75rem; color: #9a8fa8; margin-top: 0.15rem; }
 
-/* ── BIO ── */
-.bio-section {
-  background: url('images/packages-section-bg.jpg') center/cover no-repeat;
-  position: relative;
-}
-.bio-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(10,8,16,0.97) 0%, rgba(10,8,16,0.88) 50%, rgba(10,8,16,0.75) 100%);
-}
-.bio-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-.bio-image img {
-  width: 100%;
-  height: 480px;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  filter: sepia(15%) saturate(1.1);
-}
-.bio-text .section-body {
-  max-width: 100%;
-  margin-bottom: 20px;
-}
-.bio-credentials {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.bio-credential-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  font-size: 0.88rem;
-  color: rgba(247,239,228,0.65);
-  line-height: 1.5;
-}
-.bio-credential-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--gold);
-  flex-shrink: 0;
-  margin-top: 7px;
-}
-
-/* ── CBS / PRESS ── */
-.press-bar {
-  background: var(--ink-soft);
-  border-top: 1px solid rgba(247,239,228,0.06);
-  border-bottom: 1px solid rgba(247,239,228,0.06);
-  padding: 40px 0;
-}
-.press-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-.press-label {
-  font-size: 0.66rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted);
-  flex-shrink: 0;
-}
-.press-logos {
-  display: flex;
-  align-items: center;
-  gap: 48px;
-  flex-wrap: wrap;
-}
-.press-logo-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: rgba(247,239,228,0.35);
-  white-space: nowrap;
-}
-
-/* ── FINAL CTA ── */
-.final-cta {
-  text-align: center;
-  background: var(--ink-soft);
-  border-top: 1px solid rgba(232,151,26,0.12);
-}
-.final-cta .section-title {
-  max-width: 620px;
-  margin: 0 auto 16px;
-}
-.final-cta .section-body {
-  max-width: 480px;
-  margin: 0 auto 44px;
-  text-align: center;
-}
-.final-cta-btns {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.btn-primary {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--ink);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 15px 36px;
-  transition: opacity 0.2s;
-}
-.btn-primary:hover { opacity: 0.85; }
-.btn-ghost {
-  display: inline-block;
-  border: 1px solid rgba(247,239,228,0.25);
-  color: var(--cream);
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 15px 36px;
-  transition: border-color 0.2s;
-}
-.btn-ghost:hover { border-color: rgba(247,239,228,0.55); }
-
-/* ── FOOTER ── */
-footer {
-  background: var(--ink);
-  border-top: 1px solid rgba(247,239,228,0.06);
-  padding: 52px 0 36px;
-}
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 48px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 40px;
-}
-.footer-wordmark {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.35rem;
-  font-weight: 300;
-  color: var(--cream);
-  text-decoration: none;
-  margin-bottom: 8px;
-  display: block;
-}
-.footer-wordmark em { font-style: italic; color: var(--gold); }
-.footer-tagline {
-  font-size: 0.78rem;
-  color: var(--muted);
-  margin-bottom: 0;
-}
-.footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  list-style: none;
-}
-.footer-links a {
-  font-size: 0.78rem;
-  color: rgba(247,239,228,0.5);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.footer-links a:hover { color: var(--cream); }
-.footer-bottom {
-  max-width: 1100px;
-  margin: 40px auto 0;
-  padding: 20px 48px 0;
-  border-top: 1px solid rgba(247,239,228,0.06);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-.footer-copy {
-  font-size: 0.72rem;
-  color: rgba(247,239,228,0.3);
-}
-.footer-contact a {
-  font-size: 0.72rem;
-  color: rgba(247,239,228,0.3);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.footer-contact a:hover { color: var(--gold); }
-
-/* ── MOBILE ── */
-@media (max-width: 900px) {
-  nav { padding: 18px 24px; }
-  .nav-links { display: none; }
-
-  .hero-content { padding: 0 24px 64px; }
-  .hero-title { font-size: 3rem; }
-
-  .section-inner { padding: 0 24px; }
-  section { padding: 72px 0; }
-
-  .experiences-grid { grid-template-columns: 1fr; }
-  .exp-card { height: 480px; }
-  .exp-card-content { padding: 32px 28px; }
-
-  .statement-bar .section-inner { flex-direction: column; gap: 24px; }
-
-  .intro-grid { grid-template-columns: 1fr; gap: 48px; }
-  .intro-image-wrap img { height: 420px; }
-  .intro-image-accent { display: none; }
-
-  .quote-row { grid-template-columns: 1fr; }
-  .quote-item { border-right: none; border-bottom: 1px solid rgba(247,239,228,0.06); padding: 40px 24px; }
-  .quote-item:last-child { border-bottom: none; }
-
-  .locations-grid { grid-template-columns: 1fr; gap: 16px; }
-
-  .bio-grid { grid-template-columns: 1fr; gap: 40px; }
-  .bio-image img { height: 360px; }
-
-  .press-inner { flex-direction: column; gap: 20px; }
-  .press-logos { gap: 28px; }
-
-  .final-cta-btns { flex-direction: column; }
-  .btn-primary, .btn-ghost { width: 100%; max-width: 320px; text-align: center; }
-
-  .footer-inner { flex-direction: column; gap: 32px; }
-  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
-}
+  .arrow { color: #9a8fa8; font-size: 0.8rem; flex-shrink: 0; }
 </style>
 </head>
 <body>
+<div class="container">
+  <p class="eyebrow">Fiddler on the Rock</p>
+  <h1>Site Directory</h1>
 
-<!-- ── NAV ── -->
-<nav>
-  <a href="/" class="nav-wordmark">Fiddler <em>on the</em> Rock</a>
-  <ul class="nav-links">
-    <li><a href="/serenades/">Sedona Serenades</a></li>
-    <li><a href="/experience/">All Experiences</a></li>
-    <li><a href="/epk/" target="_blank">Press Kit</a></li>
-    <li><a href="/experience/#book" class="nav-cta">Book Now</a></li>
-  </ul>
-</nav>
-
-<!-- ── HERO ── -->
-<section class="hero">
-  <div class="hero-bg" id="heroBg"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <p class="hero-eyebrow">Sedona, Arizona</p>
-    <h1 class="hero-title">
-      Where the canyon<br>becomes <em>the concert hall.</em>
-    </h1>
-    <p class="hero-sub">
-      Tyler Carson brings his violin into Sedona's hidden red rock formations — and plays a private concert, just for you. No audience. No stage. Just ancient stone, open sky, and music that lives inside the landscape.
-    </p>
-    <div class="hero-actions">
-      <a href="/serenades/" class="btn-hero-primary">For Couples</a>
-      <a href="/experience/" class="btn-hero-ghost">All Experiences</a>
-    </div>
-    <div class="hero-credential">
-      <span>As seen on</span> CBS Mornings &nbsp;·&nbsp; Sedona International Film Festival &nbsp;·&nbsp; Victoria Symphony Orchestra
+  <!-- HOMEPAGE -->
+  <div class="section">
+    <p class="section-label">Homepage</p>
+    <div class="link-list">
+      <a class="page-link primary" href="homepage_v01.html">
+        <div class="link-left">
+          <span class="version-tag">V01</span>
+          <div>
+            <div class="link-title">Tyler Carson — Private Violin Concerts</div>
+            <div class="link-desc">Full homepage design</div>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
     </div>
   </div>
-</section>
 
-<!-- ── STATEMENT BAR ── -->
-<div class="statement-bar">
-  <div class="section-inner">
-    <div class="statement-line"></div>
-    <p class="statement-text">
-      This isn't a performance. It's a <strong>moment that belongs entirely to you</strong> — held by canyon walls that have been standing for 300 million years.
-    </p>
+  <!-- EPK -->
+  <div class="section">
+    <p class="section-label">EPK &mdash; epk.fiddlerontherock.com</p>
+    <div class="link-list">
+      <a class="page-link primary" href="/epk/">
+        <div class="link-left">
+          <span class="version-tag muted">Live</span>
+          <div>
+            <div class="link-title">Electronic Press Kit</div>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
   </div>
+
+  <!-- SERENADES -->
+  <div class="section">
+    <p class="section-label">Sedona Serenades &mdash; serenades.fiddlerontherock.com</p>
+    <div class="link-list">
+      <a class="page-link" href="/serenades/serenades_v01.html">
+        <div class="link-left">
+          <span class="version-tag rose">V01</span>
+          <div>
+            <div class="link-title">Private Romantic Violin Concert</div>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="page-link" href="/serenades/serenades_v02.html">
+        <div class="link-left">
+          <span class="version-tag rose">V02</span>
+          <div>
+            <div class="link-title">Private Romantic Violin Experience</div>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <p class="section-label">The Experience &mdash; packages.fiddlerontherock.com</p>
+    <div class="link-list">
+      <a class="page-link" href="/experience/experience_v01.html">
+        <div class="link-left">
+          <span class="version-tag">V01</span>
+          <div>
+            <div class="link-title">Red Rock Nature Concert</div>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="page-link" href="/experience/experience_v02.html">
+        <div class="link-left">
+          <span class="version-tag">V02</span>
+          <div>
+            <div class="link-title">Complete Strategic Package</div>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="page-link" href="/experience/experience_v03.html">
+        <div class="link-left">
+          <span class="version-tag">V03</span>
+          <div>
+            <div class="link-title">Red Rock Nature Concert</div>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- REDESIGN -->
+  <div class="section">
+    <p class="section-label">Redesign &mdash; redesign.fiddlerontherock.com</p>
+    <div class="link-list">
+      <a class="page-link primary" href="/redesign/">
+        <div class="link-left">
+          <span class="version-tag muted">Placeholder</span>
+          <div>
+            <div class="link-title">Coming Soon</div>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- STRATEGY -->
+  <div class="section">
+    <p class="section-label">Strategy &mdash; Internal</p>
+    <div class="link-list">
+      <a class="page-link internal" href="/strategy/">
+        <div class="link-left">
+          <span class="version-tag muted">Internal</span>
+          <div>
+            <div class="link-title">Strategic Partnership Package</div>
+          </div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+
 </div>
-
-<!-- ── EXPERIENCES ── -->
-<section style="padding: 0;">
-  <div class="experiences-grid">
-
-    <!-- Serenades -->
-    <a href="/serenades/" class="exp-card serenades">
-      <div class="exp-card-bg"></div>
-      <div class="exp-card-overlay"></div>
-      <div class="exp-card-content">
-        <p class="exp-card-label">For Couples</p>
-        <h2 class="exp-card-title">Sedona<br><em>Serenades</em></h2>
-        <p class="exp-card-desc">The most romantic evening in Sedona. A private canyon concert, a professional photographer, and a moment you'll carry for the rest of your life.</p>
-        <p class="exp-card-price">Complete Package &nbsp;·&nbsp; $2,000</p>
-        <span class="exp-card-cta">Plan Your Serenade</span>
-      </div>
-    </a>
-
-    <!-- Experience -->
-    <a href="/experience/" class="exp-card experience">
-      <div class="exp-card-bg"></div>
-      <div class="exp-card-overlay"></div>
-      <div class="exp-card-content">
-        <p class="exp-card-label">For All Groups</p>
-        <h2 class="exp-card-title">Red Rock<br><em>Nature Concert</em></h2>
-        <p class="exp-card-desc">A private violin concert in Sedona's red rock wilderness. Four packages for couples, small groups, celebrations, and unforgettable events.</p>
-        <p class="exp-card-price">From $499 &nbsp;·&nbsp; Up to 10 guests</p>
-        <span class="exp-card-cta">See All Experiences</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<!-- ── WHAT THIS IS ── -->
-<section>
-  <div class="section-inner">
-    <div class="intro-grid">
-      <div class="intro-image-wrap">
-        <img src="images/CAVE.jpg" alt="Tyler Carson performing in a Sedona canyon formation" loading="lazy">
-        <div class="intro-image-accent"></div>
-      </div>
-      <div class="intro-text">
-        <p class="section-eyebrow">What This Is</p>
-        <h2 class="section-title">A secret spot.<br><em>Ancient walls.</em><br>A violin.</h2>
-        <p class="section-body">
-          Tyler spent eight years scouting the landscape of Sedona to find the locations that do something most visitors never find — places where the red rock itself becomes part of the music. Hidden viewpoints tucked behind juniper groves. Canyon formations that hold sound the way concert halls were designed to.
-        </p>
-        <p class="section-body">
-          The concert runs about 75 minutes. Tyler leads you in, sets the scene, and plays. Guests often go quiet and stay that way. The kind of silence that means something is actually happening.
-        </p>
-        <div class="intro-stats">
-          <div class="stat-item">
-            <div class="stat-num">75</div>
-            <div class="stat-label">Minutes of live<br>private performance</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">2</div>
-            <div class="stat-label">Secret canyon<br>locations in Sedona</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">8</div>
-            <div class="stat-label">Years scouting<br>this landscape</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-num">10</div>
-            <div class="stat-label">Maximum guests<br>per concert</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── QUOTES ── -->
-<section class="quote-section tight">
-  <div class="section-inner" style="padding:0;">
-    <div class="quote-row">
-      <div class="quote-item">
-        <span class="quote-mark">"</span>
-        <p class="quote-text">She said I was doing God's work — turning the landscape into music she could feel in her whole body.</p>
-        <p class="quote-attr">— Tyler, on a guest's reaction</p>
-      </div>
-      <div class="quote-item">
-        <span class="quote-mark">"</span>
-        <p class="quote-text">Mind blown. I will never forget this experience. Such a unique, deeply moving moment.</p>
-        <p class="quote-attr">— Red Rock Nature Concert guest</p>
-      </div>
-      <div class="quote-item">
-        <span class="quote-mark">"</span>
-        <p class="quote-text">We bought all 14 of his CDs afterward. I don't think either of us spoke on the drive back.</p>
-        <p class="quote-attr">— Private concert guest</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── LOCATIONS ── -->
-<section>
-  <div class="section-inner">
-    <p class="section-eyebrow">The Locations</p>
-    <h2 class="section-title">Two secret spots.<br><em>Both unforgettable.</em></h2>
-    <p class="section-body">
-      These are not viewpoints on the tourist map. Tyler discovered them over years of exploring Sedona's backcountry — and chose them because they do something rare: they make the violin sound like it's coming from the earth itself.
-    </p>
-    <div class="locations-grid">
-      <div class="location-card">
-        <div class="location-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        </div>
-        <div>
-          <div class="location-name">A Hidden Viewpoint — Sedona's Natural Stage</div>
-          <div class="location-desc">A natural stage tucked behind a ring of ancient junipers. Equal to any location miles inside the forest — magically located within a public park, a brief 5-minute stroll from parking. Ancient walls, canyon expanse, and a presence that makes the violin sound like it's coming from the earth itself.</div>
-        </div>
-      </div>
-      <div class="location-card">
-        <div class="location-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        </div>
-        <div>
-          <div class="location-name">A Sweeping Red Rock Vista</div>
-          <div class="location-desc">Framed by nearly all the most famous formations of Sedona — Thunder Mountain, Boynton Canyon, Cockscomb, Chimney Rock, and more. No narrow trail. A wide, accessible path that opens suddenly into a panorama that will stop you cold.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PRESS BAR ── -->
-<div class="press-bar">
-  <div class="press-inner">
-    <p class="press-label">As featured in &amp; performed for</p>
-    <div class="press-logos">
-      <span class="press-logo-name">CBS Mornings</span>
-      <span class="press-logo-name">Sedona Int'l Film Festival</span>
-      <span class="press-logo-name">Victoria Symphony</span>
-      <span class="press-logo-name">Commonwealth Games</span>
-      <span class="press-logo-name">Auroville, India</span>
-    </div>
-  </div>
-</div>
-
-<!-- ── BIO ── -->
-<section class="bio-section">
-  <div class="section-inner">
-    <div class="bio-grid">
-      <div class="bio-image">
-        <img src="images/WDS_0055.jpg" alt="Tyler Carson — Fiddler on the Rock" loading="lazy">
-      </div>
-      <div class="bio-text">
-        <p class="section-eyebrow">Tyler Carson</p>
-        <h2 class="section-title">Living Music,<br><em>living landscape.</em></h2>
-        <p class="section-body">
-          Tyler calls his way of playing "Living Music" — a style that doesn't perform for you so much as it opens something in you. The Red Rock Nature Concert is where that philosophy meets the landscape that inspired it.
-        </p>
-        <p class="section-body">
-          An 8-year resident of Sedona, Tyler's musical path ran through some of the world's most extraordinary stages and traditions before arriving here. He gave his first solo violin concert at Pintanga Hall in Auroville, India. He toured Ireland with Sandy Kelly — a Johnny Cash collaborator — and played alongside heritage musicians at sites older than the pyramids. He played fiddle tunes for 60,000 people at the Commonwealth Games at age 11, and reinvented those same tunes as soloist with the Victoria Symphony Orchestra two years later.
-        </p>
-        <p class="section-body">
-          He chose Sedona because it plays back.
-        </p>
-        <div class="bio-credentials">
-          <div class="bio-credential-item">
-            <div class="bio-credential-dot"></div>
-            <span>Solo concert at Pintanga Hall, Auroville, India</span>
-          </div>
-          <div class="bio-credential-item">
-            <div class="bio-credential-dot"></div>
-            <span>Ireland tour with Sandy Kelly (Johnny Cash collaborator)</span>
-          </div>
-          <div class="bio-credential-item">
-            <div class="bio-credential-dot"></div>
-            <span>Performed for 60,000 at the Commonwealth Games, age 11</span>
-          </div>
-          <div class="bio-credential-item">
-            <div class="bio-credential-dot"></div>
-            <span>Soloist, Victoria Symphony Orchestra</span>
-          </div>
-          <div class="bio-credential-item">
-            <div class="bio-credential-dot"></div>
-            <span>As seen on CBS Mornings</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── FINAL CTA ── -->
-<section class="final-cta">
-  <div class="section-inner narrow" style="text-align:center;">
-    <p class="section-eyebrow">Reserve Your Concert</p>
-    <h2 class="section-title">Some moments don't<br>come back around.<br><em>This one can.</em></h2>
-    <p class="section-body">
-      Every concert is confirmed personally by Tyler within 24 hours. Select the experience that's right for you, or reach out if you're planning something that needs a conversation first.
-    </p>
-    <div class="final-cta-btns">
-      <a href="/serenades/" class="btn-primary">Sedona Serenades — For Couples</a>
-      <a href="/experience/" class="btn-ghost">All Experiences &amp; Groups</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOOTER ── -->
-<footer>
-  <div class="footer-inner">
-    <div>
-      <a href="/" class="footer-wordmark">Fiddler <em>on the</em> Rock</a>
-      <p class="footer-tagline">Private violin concerts in the red rock wilderness of Sedona, AZ.</p>
-    </div>
-    <ul class="footer-links">
-      <li><a href="/serenades/">Sedona Serenades</a></li>
-      <li><a href="/experience/">All Experiences</a></li>
-      <li><a href="/experience/#book">Book Now</a></li>
-      <li><a href="/epk/" target="_blank">Press Kit</a></li>
-    </ul>
-    <ul class="footer-links">
-      <li><a href="mailto:thefiddlerontherock@gmail.com">thefiddlerontherock@gmail.com</a></li>
-      <li><a href="#">Sedona, Arizona</a></li>
-      <li><a href="#">fiddleontherock.com</a></li>
-    </ul>
-  </div>
-  <div class="footer-bottom">
-    <p class="footer-copy">© 2026 Tyler Carson — Fiddler on the Rock. All rights reserved.</p>
-    <div class="footer-contact">
-      <a href="mailto:iam@identityoverride.com">Managed by Identity Override</a>
-    </div>
-  </div>
-</footer>
-
-<script>
-  // Hero parallax bg fade-in
-  const heroBg = document.getElementById('heroBg');
-  const img = new Image();
-  img.onload = () => {
-    heroBg.style.backgroundImage = "url('images/WDS_0117.jpg')";
-    heroBg.classList.add('loaded');
-  };
-  img.src = 'images/WDS_0117.jpg';
-
-  // Subtle parallax on scroll
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
-    heroBg.style.transform = `scale(1) translateY(${y * 0.25}px)`;
-  }, { passive: true });
-</script>
-
 </body>
 </html>
