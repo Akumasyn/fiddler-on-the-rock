@@ -12,7 +12,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/packages/$1",
+      "destination": "/experience/$1",
       "has": [{ "type": "host", "value": "packages.fiddlerontherock.com" }]
     },
     {
