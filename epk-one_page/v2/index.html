@@ -11,7 +11,6 @@
 :root {
   --ink:    #0A0810;
   --gold:   #E8971A;
-  --rose:   #C4503A;
   --cream:  #F7EFE4;
   --soft:   #EDE0CE;
   --muted:  #9a8fa8;
@@ -20,63 +19,50 @@
 html { scroll-behavior: smooth; }
 body { background: var(--ink); color: var(--cream); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
 
-/* ═══ PAGE 1 ═══ */
 .page-one {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  background: var(--ink);
 }
 
-/* LEFT — FULL PHOTO */
-.photo-col {
+/* HERO — full width top */
+.hero {
   position: relative;
-  min-height: 100vh;
+  height: 65vh;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
-.photo-col img {
-  position: absolute;
-  inset: 0;
+.hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 15%;
+  display: block;
 }
 
-/* Right-side fade so it blends into the content */
-.photo-col::after {
+.hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right,
-    rgba(10,8,16,0.0) 50%,
-    rgba(10,8,16,0.9) 90%,
-    rgba(10,8,16,1.0) 100%
-  ),
-  linear-gradient(to bottom,
-    rgba(10,8,16,0.5) 0%,
-    rgba(10,8,16,0.0) 20%,
-    rgba(10,8,16,0.0) 75%,
-    rgba(10,8,16,0.6) 100%
+  background: linear-gradient(to bottom,
+    rgba(10,8,16,0.15) 0%,
+    rgba(10,8,16,0.0)  35%,
+    rgba(10,8,16,0.7)  78%,
+    rgba(10,8,16,1.0)  100%
   );
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
-/* RIGHT — CONTENT */
-.content-col {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 60px 80px 48px;
-  background: var(--ink);
-}
-
-/* Gold rule at top */
-.rule {
-  width: 48px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.6;
-  margin-bottom: 28px;
+.hero-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 0 48px 28px;
 }
 
 .eyebrow {
@@ -85,60 +71,64 @@ body { background: var(--ink); color: var(--cream); font-family: 'DM Sans', sans
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .name {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(44px, 4.5vw, 68px);
+  font-size: clamp(44px, 6vw, 76px);
   font-weight: 300;
   line-height: 1.0;
   color: var(--cream);
   letter-spacing: -0.02em;
-  margin-bottom: 6px;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.5);
 }
 .name em { font-style: italic; color: var(--gold); }
 
-.subtitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(15px, 1.6vw, 19px);
-  font-style: italic;
-  font-weight: 300;
-  color: var(--soft);
-  margin-bottom: 32px;
+/* CONTENT */
+.content {
+  padding: 28px 48px 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Pullquote / story hook */
+.rule {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 20px;
+}
+
 .story-hook {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(17px, 1.8vw, 22px);
+  font-size: clamp(16px, 1.6vw, 20px);
   font-style: italic;
   font-weight: 300;
   color: var(--cream);
   line-height: 1.5;
   border-left: 2px solid var(--gold);
-  padding-left: 20px;
-  margin-bottom: 28px;
-  max-width: 420px;
+  padding-left: 18px;
+  margin-bottom: 20px;
+  max-width: 720px;
 }
 
-/* Journey bio */
 .bio {
   font-size: 13.5px;
   font-weight: 300;
   color: var(--soft);
-  line-height: 1.9;
-  margin-bottom: 12px;
-  max-width: 420px;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  max-width: 860px;
 }
 .bio strong { color: var(--cream); font-weight: 500; }
 
-/* Credits */
 .credits {
-  margin: 24px 0;
+  margin: 16px 0 22px;
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  flex-wrap: wrap;
+  gap: 5px 28px;
 }
 .cred-line {
   font-size: 9px;
@@ -153,39 +143,44 @@ body { background: var(--ink); color: var(--cream); font-family: 'DM Sans', sans
 .cred-line::before {
   content: '';
   display: block;
-  width: 18px;
+  width: 14px;
   height: 1px;
   background: var(--gold);
   opacity: 0.5;
   flex-shrink: 0;
 }
 
-/* CTA */
-.cta {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--ink);
-  background: var(--gold);
-  padding: 15px 40px;
-  text-decoration: none;
-  margin-top: 28px;
-  margin-bottom: 14px;
-  transition: opacity 0.2s;
-  align-self: flex-start;
-}
-.cta:hover { opacity: 0.88; }
-
-.sub {
+.footer-bar {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
+  gap: 24px;
+  border-top: 1px solid rgba(232,151,26,0.18);
+  padding-top: 18px;
+  flex-wrap: wrap;
+  margin-top: auto;
 }
+
+.footer-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--cream);
+}
+.footer-wordmark em { font-style: italic; color: var(--gold); }
+
+.footer-contact {
+  font-size: 11px;
+  color: var(--muted);
+}
+.footer-contact a { color: var(--muted); text-decoration: none; }
+.footer-contact a:hover { color: var(--gold); }
+.footer-contact .sep { margin: 0 8px; opacity: 0.4; }
+
+.sub-links { display: flex; align-items: center; gap: 14px; }
 .dl {
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
@@ -197,118 +192,50 @@ body { background: var(--ink); color: var(--cream); font-family: 'DM Sans', sans
 .dl:hover { color: var(--cream); }
 .watch-btn {
   font-size: 10px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
   background: none;
   border: 1px solid rgba(154,143,168,0.25);
   padding: 6px 14px;
-  cursor: pointer;
+  text-decoration: none;
   transition: color 0.2s, border-color 0.2s;
 }
 .watch-btn:hover { color: var(--gold); border-color: rgba(232,151,26,0.4); }
 
-/* ═══ PAGE 2 — VIDEO ═══ */
-.page-two {
-  min-height: 100vh;
-  scroll-snap-align: start;
-  background: var(--ink);
-  border-top: 1px solid rgba(232,151,26,0.12);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 48px;
+/* ═══ PRINT / PDF ═══ */
+@page { margin: 0; size: Letter; }
+@media print {
+  .page-one { min-height: 100vh; page-break-after: avoid; }
+  .hero { height: 60vh; }
+  .hero img { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .hero::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .content { padding: 20px 48px 24px; }
+  .sub-links { display: none; }
 }
-.logo { height: 50px; opacity: 0.82; margin-bottom: 44px; }
-.vid-label {
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 26px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.vid-label::before, .vid-label::after {
-  content: '';
-  display: block;
-  width: 44px;
-  height: 1px;
-  background: var(--gold);
-  opacity: 0.3;
-}
-.vid-wrap { width: 100%; max-width: 840px; }
-.vid-frame {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  background: #000;
-  border: 1px solid rgba(232,151,26,0.15);
-}
-.vid-frame iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-.vid-footer {
-  margin-top: 48px;
-  border-top: 1px solid rgba(232,151,26,0.1);
-  padding-top: 32px;
-  width: 100%;
-  max-width: 840px;
-  text-align: center;
-}
-.footer-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  font-weight: 300;
-  color: var(--cream);
-  margin-bottom: 8px;
-}
-.footer-name em { font-style: italic; color: var(--gold); }
-.footer-links { font-size: 11px; color: var(--muted); }
-.footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--gold); }
-.footer-links span { margin: 0 8px; opacity: 0.4; }
 
-/* ═══ RESPONSIVE ═══ */
-@media (max-width: 800px) {
-  .page-one { grid-template-columns: 1fr; grid-template-rows: 50vh auto; }
-  .photo-col { min-height: 50vh; grid-row: 1; }
-  .photo-col::after {
-    background: linear-gradient(to bottom,
-      rgba(10,8,16,0.0) 40%,
-      rgba(10,8,16,1.0) 100%
-    );
-  }
-  .content-col { padding: 40px 28px 60px; justify-content: flex-start; }
-  .cta { align-self: center; }
-  .page-two { padding: 48px 24px; }
+@media (max-width: 720px) {
+  .hero { height: 55vh; }
+  .hero-name { padding: 0 24px 20px; }
+  .content { padding: 24px 24px 36px; }
+  .footer-bar { flex-direction: column; align-items: flex-start; }
 }
 </style>
 </head>
 <body>
 
-<!-- PAGE 1 -->
 <section class="page-one">
-
-  <!-- LEFT: photo of the canyon/Tyler -->
-  <div class="photo-col">
+  <div class="hero">
     <img src="images/WDS_0172.jpg" alt="Tyler Carson playing violin in the red rocks of Sedona, Arizona">
+    <div class="hero-name">
+      <div class="eyebrow">Violinist · Sedona, Arizona</div>
+      <h1 class="name">Tyler <em>Carson</em></h1>
+    </div>
   </div>
 
-  <!-- RIGHT: content -->
-  <div class="content-col">
+  <div class="content">
     <div class="rule"></div>
-    <div class="eyebrow">Violinist · Sedona, Arizona</div>
-    <h1 class="name">Tyler <em>Carson</em></h1>
-    <div class="subtitle">Fiddler on the Rock</div>
 
     <blockquote class="story-hook">
       "He lost his voice. He found his violin. And the music that came out the other side is unlike anything you've ever heard."
@@ -318,7 +245,7 @@ body { background: var(--ink); color: var(--cream); font-family: 'DM Sans', sans
       After years as an internationally touring musician — performing for <strong>60,000 people at the Commonwealth Games</strong>, sharing a stage with <strong>Sandy Kelly</strong> (Johnny Cash's collaborator), and debuting as soloist with the <strong>Victoria Symphony Orchestra</strong> at thirteen — Tyler Carson hit a wall. A long depression took his voice. What came back was something deeper: a violin sound shaped by grief, recovery, and an unshakeable love for being alive.
     </p>
     <p class="bio">
-      Now featured on <strong>CBS Mornings</strong> and based in Sedona, Tyler plays in the red rock canyons with a presence that stops people cold. Not just technically exceptional — <em>emotionally undeniable</em>. The energy you see in his performance is not manufactured. It's what survival looks like when it picks up a bow.
+      Now featured on <strong>CBS Mornings</strong> and based in Sedona, Tyler plays in the red rock canyons with a presence that stops people cold. Not just technically exceptional — <em>emotionally undeniable</em>.
     </p>
 
     <div class="credits">
@@ -330,16 +257,20 @@ body { background: var(--ink); color: var(--cream); font-family: 'DM Sans', sans
       <div class="cred-line">Award-Winning Documentary — "Living Music"</div>
     </div>
 
-    <a href="../video.html" class="cta">▶ &nbsp; Click Here to Listen</a>
-
-    <div class="sub">
-      <a href="epk-one_page.pdf" download class="dl">↓ Download PDF</a>
-      <a href="../video.html" class="watch-btn">Watch Live →</a>
+    <div class="footer-bar">
+      <div class="footer-wordmark">Fiddler <em>on the</em> Rock</div>
+      <div class="sub-links">
+        <a href="epk-v2.pdf" download class="dl">↓ PDF</a>
+        <a href="../video.html" class="watch-btn">Watch Live →</a>
+      </div>
+      <div class="footer-contact">
+        📧 <a href="mailto:hello@fiddleontherock.com">hello@fiddleontherock.com</a>
+        <span class="sep">·</span>
+        🌐 <a href="https://fiddlerontherock.com">fiddlerontherock.com</a>
+      </div>
     </div>
   </div>
-
 </section>
-
 
 </body>
 </html>

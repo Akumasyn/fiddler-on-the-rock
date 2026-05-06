@@ -54,6 +54,8 @@ body { background: var(--ink); color: var(--cream); font-family: 'DM Sans', sans
     rgba(10,8,16,0.93) 76%,
     rgba(10,8,16,1.0)  100%
   );
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
 }
 
 /* CONTENT */
@@ -252,13 +254,14 @@ body { background: var(--ink); color: var(--cream); font-family: 'DM Sans', sans
 .footer-links span { margin: 0 8px; opacity: 0.4; }
 
 /* ═══ PRINT / PDF ═══ */
+@page { margin: 0; size: Letter; }
 @media print {
-  html { scroll-snap-type: none; }
-  .page-two { display: none; }
-  .sub { display: none; }
   .page-one { min-height: 100vh; page-break-after: avoid; }
   .hero { height: 58vh; }
+  .hero img { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .hero::after { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .content { padding: 24px 48px 40px; }
+  .sub { display: none; }
 }
 
 /* ═══ RESPONSIVE ═══ */
@@ -305,7 +308,7 @@ body { background: var(--ink); color: var(--cream); font-family: 'DM Sans', sans
     <a href="../video.html" class="cta">▶ &nbsp; Click Here to Listen</a>
 
     <div class="sub">
-      <a href="epk-one_page.pdf" download class="dl">↓ Download PDF</a>
+      <a href="epk-v1.pdf" download class="dl">↓ Download PDF</a>
       <a href="../video.html" class="watch">Watch Live →</a>
     </div>
   </div>
