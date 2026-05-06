@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tyler Carson — One Sheet Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #0A0810;
+  color: #F7EFE4;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  padding: 64px 48px;
+}
+.wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: #F7EFE4;
+  margin-bottom: 6px;
+}
+.wordmark em { font-style: italic; color: #E8971A; }
+.subtitle {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9a8fa8;
+  margin-bottom: 60px;
+}
+.group { margin-bottom: 52px; }
+.group-label {
+  font-size: 0.66rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #E8971A;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(232,151,26,0.15);
+}
+.cards { display: flex; flex-direction: column; gap: 10px; }
+.card {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid rgba(247,239,228,0.08);
+  text-decoration: none;
+  color: #F7EFE4;
+  transition: border-color 0.2s, background 0.2s;
+  overflow: hidden;
+  cursor: pointer;
+}
+.card:hover { border-color: rgba(232,151,26,0.35); background: rgba(232,151,26,0.04); }
+.card-num {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #E8971A;
+  opacity: 0.6;
+  padding: 18px 20px;
+  border-right: 1px solid rgba(247,239,228,0.06);
+  display: flex;
+  align-items: center;
+  background: rgba(232,151,26,0.03);
+  flex-shrink: 0;
+}
+.card-body {
+  padding: 16px 22px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+.card-title em { font-style: italic; color: #E8971A; }
+.card-desc { font-size: 0.71rem; color: #9a8fa8; line-height: 1.5; }
+.card-note { font-size: 0.66rem; color: rgba(154,143,168,0.6); margin-top: 5px; }
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+.tag {
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border: 1px solid rgba(247,239,228,0.12);
+  color: #9a8fa8;
+}
+.tag.featured { border-color: rgba(232,151,26,0.4); color: #E8971A; }
+.tag.new { border-color: rgba(100,200,100,0.4); color: #7ecb7e; }
+.arrow { color: #9a8fa8; font-size: 0.9rem; }
+.dl-link {
+  display: inline-block;
+  margin-top: 7px;
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(154,143,168,0.7);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(154,143,168,0.2);
+  padding-bottom: 1px;
+  transition: color 0.2s;
+}
+.dl-link:hover { color: #E8971A; }
+.note {
+  margin-top: 52px;
+  padding: 20px 24px;
+  border-left: 2px solid rgba(232,151,26,0.3);
+  background: rgba(232,151,26,0.04);
+  font-size: 0.81rem;
+  color: rgba(247,239,228,0.5);
+  line-height: 1.7;
+  max-width: 640px;
+}
+.note strong { color: rgba(247,239,228,0.75); font-weight: 500; }
+code {
+  font-size: 0.78rem;
+  background: rgba(232,151,26,0.08);
+  color: #E8971A;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+</style>
+</head>
+<body>
+
+<div class="wordmark">Tyler Carson — <em>One Sheet Options</em></div>
+<p class="subtitle">Booking Agent · Press Use · Forward-Ready</p>
+
+<div class="group">
+  <div class="group-label">One Sheet Versions</div>
+  <div class="cards">
+
+    <div class="card" onclick="window.location='v1/index.html'">
+      <div class="card-num">v1</div>
+      <div class="card-body">
+        <div>
+          <div class="card-title"><em>Classic</em> — Photo · Bio · Listen CTA</div>
+          <div class="card-desc">Centered · serenades hero · purple waist fade · face/sky framed · Calvin Stone format</div>
+          <a href="v1/epk-one_page.pdf" download class="dl-link" onclick="event.stopPropagation()">↓ Download PDF</a>
+        </div>
+        <div class="card-meta">
+          <span class="tag featured">Original</span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="window.location='v2/index.html'">
+      <div class="card-num">v2</div>
+      <div class="card-body">
+        <div>
+          <div class="card-title"><em>Emotional Journey</em> — Split Layout · Story Arc</div>
+          <div class="card-desc">Canyon portrait left · voice loss & recovery story right · full credits · personal depth</div>
+        </div>
+        <div class="card-meta">
+          <span class="tag new">Story</span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="window.location='v3/index.html'">
+      <div class="card-num">v3</div>
+      <div class="card-body">
+        <div>
+          <div class="card-title"><em>Press Kit</em> — 70% Stage Hero · Flyer Format</div>
+          <div class="card-desc">Big image dominant · touring copy · bullet credits · booking footer · black bg / minimal text</div>
+        </div>
+        <div class="card-meta">
+          <span class="tag new">Flyer</span>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Experience — Fiddler on the Rock</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0A0810;
+    color: #F7EFE4;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+  }
+
+  .container { max-width: 560px; width: 100%; }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #9a8fa8;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    color: #9a8fa8;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  .versions { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid rgba(247, 239, 228, 0.12);
+    color: #F7EFE4;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  a:hover {
+    border-color: rgba(232, 151, 26, 0.5);
+    background: rgba(232, 151, 26, 0.05);
+  }
+
+  .version-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #E8971A;
+    margin-bottom: 0.25rem;
+  }
+
+  .version-title { font-size: 1rem; font-weight: 400; }
+
+  .arrow { color: #9a8fa8; font-size: 0.85rem; flex-shrink: 0; margin-left: 1rem; }
+
+  .coming-soon {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: default;
+  }
+
+  .coming-soon .version-label { color: #9a8fa8; }
+</style>
+</head>
+<body>
+<div class="container">
+  <p class="eyebrow">Fiddler on the Rock</p>
+  <h1>The Experience</h1>
+  <p class="subtitle">Design versions — select to preview.</p>
+
+  <div class="versions">
+    <a href="experience_v01.html">
+      <div>
+        <div class="version-label">Version 01</div>
+        <div class="version-title">Red Rock Nature Concert</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a href="experience_v02.html">
+      <div>
+        <div class="version-label">Version 02</div>
+        <div class="version-title">Complete Strategic Package</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="coming-soon" href="#">
+      <div>
+        <div class="version-label">Version 03</div>
+        <div class="version-title">Coming soon</div>
+      </div>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+</div>
+</body>
+</html>

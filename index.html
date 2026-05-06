@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiddler on the Rock — Page Directory</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0A0810;
+    color: #F7EFE4;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    padding: 64px 48px;
+  }
+  .wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #F7EFE4;
+    margin-bottom: 6px;
+  }
+  .wordmark em { font-style: italic; color: #E8971A; }
+  .subtitle {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #9a8fa8;
+    margin-bottom: 60px;
+  }
+  .group { margin-bottom: 52px; }
+  .group-label {
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #E8971A;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(232,151,26,0.15);
+  }
+  .links { display: flex; flex-direction: column; gap: 10px; }
+  .link-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    border: 1px solid rgba(247,239,228,0.08);
+    text-decoration: none;
+    color: #F7EFE4;
+    transition: border-color 0.2s, background 0.2s;
+    gap: 24px;
+  }
+  .link-row:hover { border-color: rgba(232,151,26,0.35); background: rgba(232,151,26,0.04); }
+  .link-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+  .link-name em { font-style: italic; color: #E8971A; }
+  .link-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  .link-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid rgba(247,239,228,0.12);
+    color: #9a8fa8;
+  }
+  .link-tag.current { border-color: rgba(232,151,26,0.4); color: #E8971A; }
+  .link-tag.new { border-color: rgba(100,200,100,0.4); color: #7ecb7e; }
+  .link-arrow { color: #9a8fa8; font-size: 0.9rem; }
+  .note {
+    margin-top: 60px;
+    padding: 20px 24px;
+    border-left: 2px solid rgba(232,151,26,0.3);
+    background: rgba(232,151,26,0.04);
+    font-size: 0.82rem;
+    color: rgba(247,239,228,0.55);
+    line-height: 1.65;
+    max-width: 600px;
+  }
+  .note strong { color: rgba(247,239,228,0.75); font-weight: 500; }
+</style>
+</head>
+<body>
+
+<div class="wordmark">Fiddler <em>on the</em> Rock</div>
+<p class="subtitle">Build Directory — All Pages &amp; Versions</p>
+
+<div class="group">
+  <div class="group-label">Sedona Serenades — Couples Landing Page</div>
+  <div class="links">
+    <a href="serenades/index.html" class="link-row">
+      <span class="link-name"><em>Sedona Serenades</em> — v01</span>
+      <div class="link-meta">
+        <span class="link-tag">v01 — Original</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+    <a href="serenades/serenades_v02.html" class="link-row">
+      <span class="link-name"><em>Sedona Serenades</em> — v02</span>
+      <div class="link-meta">
+        <span class="link-tag new">v02 — Parallax hero · Modals · VIP dates · Local logo</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="group">
+  <div class="group-label">Experience Page — All Packages (formerly RRNC)</div>
+  <div class="links">
+    <a href="experience/experience_v01.html" class="link-row">
+      <span class="link-name">Experience Page — <em>v01</em></span>
+      <div class="link-meta">
+        <span class="link-tag">v01 — Original</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+    <a href="experience/experience_v02.html" class="link-row">
+      <span class="link-name">Experience Page — <em>v02</em></span>
+      <div class="link-meta">
+        <span class="link-tag">v02 — Tyler Reviewed</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+    <a href="experience/experience_v03.html" class="link-row">
+      <span class="link-name">Experience Page — <em>v03</em></span>
+      <div class="link-meta">
+        <span class="link-tag new">v03 — Latest (Tyler's feedback applied)</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="group">
+  <div class="group-label">Home Page Concept</div>
+  <div class="links">
+    <a href="homepage_v01.html" class="link-row">
+      <span class="link-name">Home Page — <em>v01 Concept</em></span>
+      <div class="link-meta">
+        <span class="link-tag new">v01 — Draft</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="group">
+  <div class="group-label">One Sheet — Booking Agent</div>
+  <div class="links">
+    <a href="EPK-one_page/index.html" class="link-row">
+      <span class="link-name"><em>EPK One Sheet</em> — Calvin Stone Format</span>
+      <div class="link-meta">
+        <span class="link-tag new">v01 — Photo · Bio · Listen CTA · Video page</span>
+        <span class="link-arrow">→</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<div class="group">
+  <div class="group-label">Press Kit</div>
+  <div class="links">
+    <a href="https://fiddler-on-the-rock.vercel.app/EPK" target="_blank" class="link-row">
+      <span class="link-name">EPK — <em>Electronic Press Kit</em></span>
+      <div class="link-meta">
+        <span class="link-tag current">Live on Vercel</span>
+        <span class="link-arrow">↗</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+
+</body>
+</html>

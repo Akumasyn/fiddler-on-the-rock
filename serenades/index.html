@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sedona Serenades — Private Romantic Violin Concert | Fiddler on the Rock</title>
+<meta name="description" content="The most intimate romantic experience in Sedona. A private live violin concert in the red rock canyon — exclusively for two. Photographer included. Perfect for proposals and anniversaries.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #0A0810;
+    --ink-soft:   #140f1a;
+    --ink-mid:    #1e1828;
+    --gold:       #E8971A;
+    --gold-light: #f0b84a;
+    --rose:       #C4503A;
+    --rose-soft:  #9B3A28;
+    --dusk:       #6B3060;
+    --cream:      #F7EFE4;
+    --cream-soft: #EDE0CE;
+    --muted:      #9a8fa8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: linear-gradient(to bottom, rgba(11,13,18,0.85) 0%, transparent 100%);
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo img {
+    height: 36px;
+    opacity: 0.92;
+  }
+  .nav-wordmark {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: var(--cream);
+  }
+  .nav-cta {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cream);
+    text-decoration: none;
+    border: 1px solid rgba(245,240,232,0.35);
+    padding: 9px 20px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .nav-cta:hover { border-color: var(--gold-light); color: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, #0A0810 0%, #1a0e0a 50%, #0A0810 100%);
+    z-index: 0;
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+      rgba(10,8,16,0.82) 0%,
+      rgba(10,8,16,0.25) 35%,
+      rgba(10,8,16,0.15) 55%,
+      rgba(10,8,16,0.65) 100%);
+  }
+  .hero-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    opacity: 0.85;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 6.5vw, 80px);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .hero-sub {
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--cream-soft);
+    max-width: 560px;
+    margin: 0 auto 44px;
+    line-height: 1.65;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--rose) 0%, var(--gold) 100%);
+    color: var(--cream);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+    border: none;
+  }
+  .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-ghost {
+    display: inline-block;
+    border: 1px solid rgba(200,169,110,0.5);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 15px 32px;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); }
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.45;
+  }
+  .hero-scroll span { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; }
+  .hero-scroll-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 24px; }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+  .section-inner.narrow { max-width: 680px; }
+  .section-inner.wide { max-width: 1100px; }
+
+  .section-eyebrow {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 24px;
+  }
+  .section-title em { font-style: italic; color: var(--gold-light); }
+  .section-body {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--cream-soft);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+  .section-body strong { color: var(--cream); font-weight: 500; }
+  .divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 60px;
+    opacity: 0.5;
+  }
+
+  /* ── WHAT'S INCLUDED ── */
+  .includes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2px;
+    margin-top: 48px;
+    border: 1px solid var(--ink-mid);
+  }
+  .include-item {
+    background: var(--ink-soft);
+    padding: 32px 28px;
+    border: 1px solid var(--ink-mid);
+  }
+  .include-icon {
+    font-size: 22px;
+    margin-bottom: 14px;
+    opacity: 0.8;
+  }
+  .include-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 8px;
+  }
+  .include-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── OCCASIONS ── */
+  .occasions { background: var(--ink-soft); }
+  .occasion-list { margin-top: 48px; }
+  .occasion-item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 32px;
+    padding: 40px 0;
+    border-top: 1px solid var(--ink-mid);
+    align-items: start;
+  }
+  .occasion-item:last-child { border-bottom: 1px solid var(--ink-mid); }
+  .occasion-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--gold-light);
+    line-height: 1.2;
+    padding-top: 4px;
+  }
+  .occasion-body {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--cream-soft);
+    line-height: 1.7;
+  }
+
+  /* ── PRICING ── */
+  .pricing-card {
+    background: var(--ink-soft);
+    border: 1px solid var(--ink-mid);
+    padding: 60px;
+    text-align: center;
+    margin-top: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--rose), var(--gold), transparent);
+  }
+  .pricing-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(52px, 8vw, 88px);
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .pricing-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+  .pricing-includes {
+    list-style: none;
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto 44px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .pricing-includes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    color: var(--cream-soft);
+  }
+  .pricing-includes li::before {
+    content: '—';
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .pricing-note {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 24px;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials { background: var(--ink); }
+  .quote-block {
+    border-left: 2px solid var(--gold);
+    padding: 28px 36px;
+    background: var(--ink-soft);
+    margin-bottom: 20px;
+  }
+  .quote-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--cream);
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  .quote-attr {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── FAQ ── */
+  .faq { background: var(--ink-soft); }
+  .faq-list { margin-top: 48px; }
+  .faq-item {
+    padding: 32px 0;
+    border-top: 1px solid var(--ink-mid);
+  }
+  .faq-item:last-child { border-bottom: 1px solid var(--ink-mid); }
+  .faq-q {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 12px;
+  }
+  .faq-a {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--cream-soft);
+    line-height: 1.7;
+  }
+
+  /* ── FORM ── */
+  .form-section { background: var(--ink); }
+  .form-wrap {
+    background: var(--ink-soft);
+    border: 1px solid var(--ink-mid);
+    padding: 60px;
+    margin-top: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .form-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .form-field { display: flex; flex-direction: column; gap: 8px; }
+  .form-field.full { grid-column: 1 / -1; }
+  label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  input, select, textarea {
+    background: var(--ink);
+    border: 1px solid var(--ink-mid);
+    color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+  select option { background: var(--ink-soft); }
+  textarea { resize: vertical; min-height: 120px; }
+  .form-submit {
+    margin-top: 28px;
+    text-align: center;
+  }
+  .form-submit button {
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 18px 52px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .form-submit button:hover { background: var(--gold-light); transform: translateY(-1px); }
+  .form-privacy {
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink-soft);
+    border-top: 1px solid var(--ink-mid);
+    padding: 48px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .footer-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .footer-left img { height: 28px; opacity: 0.7; }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .footer-links {
+    display: flex;
+    gap: 28px;
+  }
+  .footer-links a {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 700px) {
+    nav { padding: 16px 20px; }
+    .nav-wordmark { display: none; }
+    section { padding: 70px 20px; }
+    .pricing-card { padding: 40px 24px; }
+    .form-wrap { padding: 36px 24px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .occasion-item { grid-template-columns: 1fr; gap: 12px; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://www.fiddlerontherock.com" class="nav-logo">
+    <img src="https://static.wixstatic.com/media/a7b5ce_8b8ff68d4b5f4e13a41ad22a41b01f04~mv2.png" alt="Fiddler on the Rock">
+    <span class="nav-wordmark">Fiddler on the Rock</span>
+  </a>
+  <a href="#inquire" class="nav-cta">Plan Your Serenade</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <!-- HERO IMAGE: Tyler playing violin at Sedona sunset -->
+    <!-- Update src to the actual filename once saved to this folder -->
+    <img src="../images/serenades-hero.jpg" alt="Tyler Carson playing violin at Sedona sunset">
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Sedona Serenades &nbsp;·&nbsp; Exclusively for Two</p>
+    <h1 class="hero-title">
+      The most romantic evening<br>
+      in Sedona.<br>
+      <em>Built entirely for the two of you.</em>
+    </h1>
+    <p class="hero-sub">A private outdoor violin concert in a secret red rock canyon. A professional photographer capturing every moment. Every detail arranged. Nothing else like this exists in Arizona.</p>
+    <div class="hero-actions">
+      <a href="#inquire" class="btn-primary">Plan Your Serenade</a>
+      <a href="#whats-included" class="btn-ghost">See What's Included</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- WHAT THIS IS -->
+<section>
+  <div class="section-inner narrow" style="text-align:center;">
+    <p class="section-eyebrow">The Experience</p>
+    <h2 class="section-title">An evening that belongs<br><em>entirely to you.</em></h2>
+    <div class="divider"></div>
+    <p class="section-body">Sedona Serenades is not a group concert with a romantic name. It is a private, exclusive experience designed from the ground up for two people who want to mark a moment that deserves more than a dinner reservation.</p>
+    <p class="section-body">Violinist Tyler Carson leads you to a secret canyon location — chosen specifically for this experience — and performs a live, private concert as the canyon light shifts around you. A professional photographer is there the entire time, capturing what you're feeling as it's happening.</p>
+    <p class="section-body" style="color:var(--cream);font-weight:500;">No other guests. No strangers nearby. No compromise.</p>
+  </div>
+</section>
+
+<!-- WHAT'S INCLUDED -->
+<section id="whats-included" style="background:var(--ink-soft); padding-top:80px; padding-bottom:80px;">
+  <div class="section-inner">
+    <p class="section-eyebrow" style="text-align:center;">Everything Is Included</p>
+    <h2 class="section-title" style="text-align:center;">Nothing left to arrange.<br><em>Everything taken care of.</em></h2>
+    <div class="includes-grid">
+      <div class="include-item">
+        <div class="include-icon">♪</div>
+        <div class="include-title">Private Live Concert</div>
+        <div class="include-desc">A full 60–75 minute live violin performance by Tyler Carson. Classical crossover, original compositions, Celtic — chosen for the light and the moment.</div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">◎</div>
+        <div class="include-title">Professional Photographer</div>
+        <div class="include-desc">We arrange everything. A professional photographer is present for the full experience — portraits, candids, the music, the moment. You don't make a single call. Edited gallery delivered within 72 hours.</div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">◆</div>
+        <div class="include-title">Secret Canyon Location</div>
+        <div class="include-desc">A private site most Sedona visitors never find. Chosen for its dramatic beauty, natural acoustics, and the way the canyon light moves at the hour you arrive.</div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">✦</div>
+        <div class="include-title">Artisan Chocolate & Spring Water</div>
+        <div class="include-desc">Handmade organic artisan chocolate and Sedona artesian spring water — presented when you arrive at the location.</div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">◇</div>
+        <div class="include-title">Edited Photo Gallery</div>
+        <div class="include-desc">Your full edited photo gallery delivered digitally within 72 hours. The photographs you'll still have in 30 years.</div>
+      </div>
+      <div class="include-item">
+        <div class="include-icon">⟡</div>
+        <div class="include-title">Private Arrangement</div>
+        <div class="include-desc">Tyler responds to every inquiry personally. The experience is arranged around your schedule, your occasion, and your vision.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OCCASIONS -->
+<section class="occasions">
+  <div class="section-inner">
+    <p class="section-eyebrow">This Is How You Do It Right</p>
+    <h2 class="section-title">Built for the moments<br><em>that deserve more.</em></h2>
+    <div class="occasion-list">
+      <div class="occasion-item">
+        <div class="occasion-label">The Proposal</div>
+        <div class="occasion-body">You've been planning this for months. She deserves a moment that doesn't look like every other proposal she's seen. The canyon, the music, the photographer ready when you get down on one knee. This is how you make it impossible to say anything but yes.</div>
+      </div>
+      <div class="occasion-item">
+        <div class="occasion-label">The Anniversary</div>
+        <div class="occasion-body">Ten years. Twenty-five. The milestone that needs to feel like what it actually is. Give yourselves something you've never had and will never forget — an evening that marks the occasion the way it deserves to be marked.</div>
+      </div>
+      <div class="occasion-item">
+        <div class="occasion-label">The Birthday</div>
+        <div class="occasion-body">The person who has everything. The one who says they don't want a fuss. Give them something they've never experienced and couldn't have found on their own. The fuss, it turns out, is worth it.</div>
+      </div>
+      <div class="occasion-item">
+        <div class="occasion-label">Just Because</div>
+        <div class="occasion-body">You don't need a milestone. The canyon doesn't ask for one. Sometimes the reason is just that you want to give the person you love something extraordinary, and you have the taste to know what that looks like.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section>
+  <div class="section-inner narrow" style="text-align:center;">
+    <p class="section-eyebrow">Investment</p>
+    <h2 class="section-title">Everything included.<br><em>Nothing left to figure out.</em></h2>
+    <div class="pricing-card">
+      <div class="pricing-amount">$2,000</div>
+      <div class="pricing-label">For Two &nbsp;·&nbsp; Complete Package</div>
+      <ul class="pricing-includes">
+        <li>Private canyon location — exclusively for you</li>
+        <li>Full live violin concert (60–75 minutes)</li>
+        <li>Professional photographer, full coverage</li>
+        <li>Artisan chocolate &amp; Sedona spring water</li>
+        <li>Edited photo gallery within 72 hours</li>
+        <li>Personal arrangement by Tyler</li>
+      </ul>
+      <a href="#inquire" class="btn-primary">Plan Your Serenade</a>
+      <p class="pricing-note">Prefer to bring your own photographer? Let us know in your inquiry — we can adjust accordingly.<br>Sedona Serenades is exclusively for adult couples. For groups or families, see the <a href="rrnc.html" style="color:var(--gold);">Red Rock Nature Concert</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-inner narrow" style="text-align:center;">
+    <p class="section-eyebrow">What Guests Say</p>
+    <h2 class="section-title" style="margin-bottom:48px;">Words from the<br><em>canyon.</em></h2>
+    <div class="quote-block" style="text-align:left;">
+      <p class="quote-text">"She said I was doing God's work — turning the landscape into music she could feel in her whole body."</p>
+      <p class="quote-attr">— Tyler, on a guest's reaction</p>
+    </div>
+    <div class="quote-block" style="text-align:left;">
+      <p class="quote-text">"Mind blown. I will never forget this experience."</p>
+      <p class="quote-attr">— Red Rock Nature Concert guest</p>
+    </div>
+    <div class="quote-block" style="text-align:left;">
+      <p class="quote-text">"Such a unique, deeply moving experience. We bought all 14 of his CDs afterward."</p>
+      <p class="quote-attr">— Private concert guest</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="section-inner">
+    <p class="section-eyebrow">Questions</p>
+    <h2 class="section-title">Everything you need<br><em>to know.</em></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Is this really private — just the two of us?</div>
+        <div class="faq-a">Yes. Completely. No other guests, no other groups, no strangers. The canyon location is selected for you. Tyler performs exclusively for you for the full concert. The photographer is there only for you. This is not a shared experience.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are children allowed?</div>
+        <div class="faq-a">Sedona Serenades is designed exclusively for adult couples. For families or groups with children, Tyler's <a href="rrnc.html" style="color:var(--gold);">Red Rock Nature Concert</a> is a wonderful option.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How far in advance should we book?</div>
+        <div class="faq-a">A minimum of 5 days is required. Peak dates — Valentine's Day, New Year's Eve, fall season — book 4–6 weeks out. If you have a specific date in mind, the sooner you reach out, the better.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What if it rains?</div>
+        <div class="faq-a">Sedona averages over 300 sunny days per year. In the rare event of weather, Tyler will work with you to reschedule at no additional cost.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How far do we walk?</div>
+        <div class="faq-a">The primary Sedona Serenades location is a short, easy walk from parking — approximately 5 minutes on a gentle path. If mobility is a consideration, let us know when you inquire and Tyler will select the accessible Cultural Park location.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What should we wear?</div>
+        <div class="faq-a">Comfortable layers — Sedona evenings shift quickly. Closed-toe shoes for the short walk. You'll look stunning in the photographs regardless of what you wear.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can we add a bottle of champagne?</div>
+        <div class="faq-a">Absolutely — bring what you'd like to celebrate with. The canyon doesn't have a corkage fee.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="inquire">
+  <div class="section-inner narrow" style="text-align:center;">
+    <p class="section-eyebrow">Reserve Your Evening</p>
+    <h2 class="section-title">Tell us about<br><em>your occasion.</em></h2>
+    <p class="section-body" style="text-align:center; margin-bottom:0;">Tyler responds personally to every inquiry. Share your date, your occasion, and what you're envisioning — and he'll take it from there.</p>
+  </div>
+  <div class="section-inner" style="max-width:680px;">
+    <div class="form-wrap">
+      <form id="serenade-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone (optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+          </div>
+          <div class="form-field">
+            <label for="occasion">Occasion</label>
+            <select id="occasion" name="occasion" required>
+              <option value="" disabled selected>Select your occasion</option>
+              <option>Proposal</option>
+              <option>Anniversary</option>
+              <option>Birthday</option>
+              <option>Valentine's Day</option>
+              <option>Honeymoon / Post-Wedding</option>
+              <option>Just Because</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-field full">
+            <label for="dates">Preferred Date(s)</label>
+            <input type="text" id="dates" name="dates" placeholder="e.g. April 25 or anytime in May">
+          </div>
+          <div class="form-field full">
+            <label for="message">Tell Tyler about your vision</label>
+            <textarea id="message" name="message" placeholder="Any details about the occasion, what matters most to you, or questions you have..."></textarea>
+          </div>
+        </div>
+        <div class="form-submit">
+          <button type="submit">Send My Inquiry</button>
+        </div>
+        <p class="form-privacy">Tyler reads every message and responds personally within 24 hours.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <img src="https://static.wixstatic.com/media/a7b5ce_8b8ff68d4b5f4e13a41ad22a41b01f04~mv2.png" alt="Fiddler on the Rock">
+    <span class="footer-name">Fiddler on the Rock &nbsp;·&nbsp; Sedona, Arizona</span>
+  </div>
+  <div class="footer-links">
+    <a href="https://www.fiddlerontherock.com">Home</a>
+    <a href="rrnc.html">Red Rock Nature Concert</a>
+    <a href="https://www.fiddlerontherock.com/contact">Contact Tyler</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tyler Carson — One Sheet v3</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:   #080608;
+  --gold:  #E8971A;
+  --cream: #F7EFE4;
+  --soft:  #D8CFC4;
+  --muted: #8a8090;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--cream); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; }
+
+/* ═══ PAGE 1 — FLYER ═══ */
+.page-one {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--ink);
+}
+
+/* HERO — 70% of viewport */
+.hero {
+  position: relative;
+  height: 70vh;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+  display: block;
+}
+
+/* Bottom fade only — keeping image clean at top */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+    rgba(8,6,8,0.0) 0%,
+    rgba(8,6,8,0.0) 55%,
+    rgba(8,6,8,0.85) 82%,
+    rgba(8,6,8,1.0) 100%
+  );
+}
+
+/* Name overlaid at bottom of hero */
+.hero-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 0 48px 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.name-block h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 6vw, 76px);
+  font-weight: 300;
+  line-height: 1.0;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.6);
+}
+
+.name-block h1 em { font-style: italic; color: var(--gold); }
+
+.name-block .tagline {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.cta-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--gold);
+  padding: 14px 32px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-end;
+  transition: opacity 0.2s;
+}
+.cta-hero:hover { opacity: 0.88; }
+
+/* CONTENT BELOW */
+.content {
+  padding: 28px 48px 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bio */
+.bio {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--soft);
+  line-height: 1.8;
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+.bio strong { color: var(--cream); font-weight: 500; }
+
+/* Bullets */
+.bullets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 0;
+  margin-bottom: 28px;
+  flex-direction: column;
+  max-width: 680px;
+}
+
+.bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--soft);
+  line-height: 1.5;
+}
+
+.bullet::before {
+  content: '▸';
+  color: var(--gold);
+  font-size: 10px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Footer bar */
+.footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-top: 1px solid rgba(232,151,26,0.18);
+  padding-top: 20px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.footer-wordmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--cream);
+}
+.footer-wordmark em { font-style: italic; color: var(--gold); }
+
+.footer-contact {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: right;
+}
+.footer-contact a { color: var(--muted); text-decoration: none; }
+.footer-contact a:hover { color: var(--gold); }
+.footer-contact .sep { margin: 0 8px; opacity: 0.4; }
+
+.sub-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.dl {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(138,128,144,0.3);
+  padding-bottom: 1px;
+  transition: color 0.2s;
+}
+.dl:hover { color: var(--cream); }
+.watch-btn {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: none;
+  border: 1px solid rgba(138,128,144,0.25);
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.watch-btn:hover { color: var(--gold); border-color: rgba(232,151,26,0.4); }
+
+/* ═══ PAGE 2 — VIDEO ═══ */
+.page-two {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  background: var(--ink);
+  border-top: 1px solid rgba(232,151,26,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 48px;
+}
+.logo { height: 50px; opacity: 0.82; margin-bottom: 44px; }
+.vid-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 26px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.vid-label::before, .vid-label::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.3;
+}
+.vid-wrap { width: 100%; max-width: 840px; }
+.vid-frame {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+  border: 1px solid rgba(232,151,26,0.15);
+}
+.vid-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.vid-footer {
+  margin-top: 48px;
+  border-top: 1px solid rgba(232,151,26,0.1);
+  padding-top: 32px;
+  width: 100%;
+  max-width: 840px;
+  text-align: center;
+}
+.footer-name-v {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+.footer-name-v em { font-style: italic; color: var(--gold); }
+.footer-links { font-size: 11px; color: var(--muted); }
+.footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-links span { margin: 0 8px; opacity: 0.4; }
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 720px) {
+  .hero { height: 60vh; }
+  .hero-name { padding: 0 24px 20px; flex-direction: column; align-items: flex-start; gap: 16px; }
+  .content { padding: 24px 24px 36px; }
+  .footer-bar { flex-direction: column; align-items: flex-start; }
+  .footer-contact { text-align: left; }
+  .page-two { padding: 48px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 — FLYER -->
+<section class="page-one">
+  <div class="hero">
+    <img src="images/stage-hero.jpg" alt="Tyler Carson performing on stage">
+
+    <div class="hero-name">
+      <div class="name-block">
+        <div class="tagline">Internationally Touring Violinist</div>
+        <h1>Tyler <em>Carson</em></h1>
+      </div>
+      <a href="https://www.youtube.com/shorts/NBV4dstXiuk" target="_blank" class="cta-hero">
+        ▶ &nbsp;Watch Performance
+      </a>
+    </div>
+  </div>
+
+  <div class="content">
+    <p class="bio">
+      <strong>Tyler Carson</strong> is an internationally touring violinist known for delivering powerful, emotionally driven performances across stages worldwide. A prodigy from a young age, he has performed across multiple countries — blending classical mastery with modern expression to create a sound that resonates with diverse audiences. Now returning to the global stage, Tyler brings a unique performance style shaped by world touring, award-winning documentary work, and his signature residency in Sedona's iconic red rock landscapes.
+    </p>
+
+    <div class="bullets">
+      <div class="bullet">Featured on <strong>CBS Mornings</strong> — nationally broadcast live performance</div>
+      <div class="bullet">Performed live for <strong>60,000 people at the Commonwealth Games</strong></div>
+      <div class="bullet">Soloist with the <strong>Victoria Symphony Orchestra</strong> at age 13</div>
+      <div class="bullet">International touring artist — Ireland, India, Canada, and beyond</div>
+      <div class="bullet">Collaborated with <strong>Sandy Kelly</strong>, Johnny Cash's touring partner</div>
+      <div class="bullet"><strong>Award-winning documentary</strong> subject — "Living Music" (multi-festival run)</div>
+      <div class="bullet">Featured: Sedona Monthly · Discover the Region · Red Rock News · Verde Valley</div>
+    </div>
+
+    <div class="footer-bar">
+      <div class="footer-wordmark">Fiddler <em>on the</em> Rock</div>
+      <div class="sub-links">
+        <a href="epk-one_page.pdf" download class="dl">↓ PDF</a>
+        <a href="../video.html" class="watch-btn">Full Video →</a>
+      </div>
+      <div class="footer-contact">
+        📧 <a href="mailto:hello@fiddleontherock.com">hello@fiddleontherock.com</a>
+        <span class="sep">·</span>
+        🌐 <a href="https://fiddlerontherock.com">fiddlerontherock.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>

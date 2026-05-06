@@ -1,0 +1,29 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/EPK-one_page/$1",
+      "has": [{ "type": "host", "value": "press.fiddlerontherock.com" }]
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/epk/$1",
+      "has": [{ "type": "host", "value": "epk.fiddlerontherock.com" }]
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/serenades/$1",
+      "has": [{ "type": "host", "value": "serenades.fiddlerontherock.com" }]
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/experience/$1",
+      "has": [{ "type": "host", "value": "packages.fiddlerontherock.com" }]
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/redesign/$1",
+      "has": [{ "type": "host", "value": "redesign.fiddlerontherock.com" }]
+    }
+  ]
+}

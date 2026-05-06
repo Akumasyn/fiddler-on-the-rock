@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiddler on the Rock — Complete Strategic Package | Jason Eli Sayers Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ─── RESET & ROOT ─────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:       #0B0D12;
+  --surface:  #12161E;
+  --surface2: #191E29;
+  --border:   #222836;
+  --rust:     #C94610;
+  --rust2:    #E86030;
+  --gold:     #C8880A;
+  --gold2:    #E8A820;
+  --sage:     #4E7A63;
+  --sage2:    #6E9E84;
+  --cream:    #F0EBE1;
+  --text:     #D8D3C9;
+  --muted:    #7A8494;
+  --dim:      #4A5264;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'Space Mono', monospace;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* ─── SCROLLBAR ─────────────────────────────────────────────────── */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--rust);border-radius:3px}
+
+/* ─── TOP NAV ───────────────────────────────────────────────────── */
+.nav{
+  position:fixed;top:0;left:0;right:0;
+  background:rgba(11,13,18,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;
+  height:56px;
+}
+.nav-brand{
+  display:flex;align-items:center;gap:12px;
+}
+.nav-logo{width:32px;height:32px;border-radius:50%;object-fit:cover}
+.nav-title{
+  font-family:var(--font-display);
+  font-size:14px;font-weight:500;
+  color:var(--cream);letter-spacing:0.04em;
+}
+.nav-links{
+  display:flex;align-items:center;gap:4px;
+}
+.nav-link{
+  font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  padding:6px 12px;border-radius:4px;
+  transition:color 0.2s,background 0.2s;
+  white-space:nowrap;
+}
+.nav-link:hover{color:var(--cream);background:var(--surface)}
+.nav-link.active{color:var(--rust2);background:rgba(201,70,16,0.12)}
+
+/* ─── CHAPTER LABELS ─────────────────────────────────────────────── */
+.chapter-marker{
+  font-family:var(--font-mono);font-size:10px;
+  letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--rust);display:block;margin-bottom:12px;
+}
+
+/* ─── HERO / COVER ──────────────────────────────────────────────── */
+#cover{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;
+  padding:80px 32px 60px;
+  overflow:hidden;
+}
+.hero-photo{
+  position:absolute;inset:0;
+  background-image:url("../images/strategy-hero-bg.jpg");
+  background-size:cover;background-position:center 30%;
+  opacity:0.18;
+  filter:grayscale(40%);
+}
+.hero-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom, transparent 40%, var(--bg) 100%);
+}
+.cover-inner{position:relative;max-width:760px;}
+.cover-logo{
+  width:90px;height:90px;border-radius:50%;
+  margin:0 auto 28px;display:block;
+  border:2px solid rgba(201,70,16,0.4);
+  box-shadow:0 0 40px rgba(201,70,16,0.2);
+}
+.cover-eyebrow{
+  font-family:var(--font-mono);font-size:11px;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--rust2);margin-bottom:20px;
+}
+.cover-title{
+  font-family:var(--font-display);
+  font-size:clamp(40px,6vw,72px);
+  font-weight:300;line-height:1.1;
+  color:var(--cream);
+  margin-bottom:16px;
+}
+.cover-title em{font-style:italic;color:var(--gold2)}
+.cover-subtitle{
+  font-size:14px;font-weight:400;
+  color:var(--muted);letter-spacing:0.05em;
+  margin-bottom:48px;
+}
+.cover-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--border);border-radius:8px;overflow:hidden;
+  margin-bottom:48px;
+}
+.stat-box{
+  background:var(--surface);padding:24px 20px;text-align:center;
+}
+.stat-num{
+  font-family:var(--font-display);
+  font-size:38px;font-weight:500;
+  color:var(--gold2);line-height:1;margin-bottom:6px;
+}
+.stat-label{font-size:12px;color:var(--muted);line-height:1.3}
+
+.toc{
+  display:flex;flex-direction:column;gap:10px;
+  text-align:left;max-width:560px;margin:0 auto;
+}
+.toc-item{
+  display:flex;align-items:center;gap:16px;
+  padding:12px 16px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:6px;text-decoration:none;
+  transition:border-color 0.2s,background 0.2s;
+}
+.toc-item:hover{border-color:var(--rust);background:var(--surface2)}
+.toc-num{
+  font-family:var(--font-mono);font-size:10px;
+  color:var(--rust);letter-spacing:0.1em;
+  min-width:28px;
+}
+.toc-text{
+  flex:1;
+  font-size:13px;font-weight:500;color:var(--cream);
+}
+.toc-tag{
+  font-size:11px;color:var(--muted);
+  font-family:var(--font-mono);letter-spacing:0.05em;
+}
+
+.scroll-hint{
+  margin-top:48px;font-family:var(--font-mono);
+  font-size:10px;color:var(--dim);letter-spacing:0.15em;
+  text-transform:uppercase;
+  animation:float 2s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+/* ─── SECTION WRAPPER ─────────────────────────────────────────────── */
+.section{
+  max-width:900px;margin:0 auto;
+  padding:100px 40px;
+  border-bottom:1px solid var(--border);
+}
+.section:last-of-type{border-bottom:none}
+
+/* ─── SECTION HEADER ─────────────────────────────────────────────── */
+.section-header{margin-bottom:52px}
+.section-number{
+  font-family:var(--font-mono);font-size:10px;
+  color:var(--rust);letter-spacing:0.2em;
+  text-transform:uppercase;display:block;margin-bottom:14px;
+}
+.section-title{
+  font-family:var(--font-display);
+  font-size:clamp(28px,4vw,48px);
+  font-weight:300;line-height:1.15;
+  color:var(--cream);margin-bottom:16px;
+}
+.section-title span{color:var(--gold2)}
+.section-title em{font-style:italic}
+.section-lead{
+  font-size:16px;color:var(--muted);
+  max-width:680px;line-height:1.8;
+  border-left:3px solid var(--rust);
+  padding-left:20px;
+}
+
+/* ─── RETAINER BOX ─────────────────────────────────────────────── */
+.retainer-box{
+  background:linear-gradient(135deg, rgba(201,70,16,0.12) 0%, rgba(200,136,10,0.08) 100%);
+  border:1px solid rgba(201,70,16,0.35);
+  border-radius:12px;padding:36px 40px;
+  margin:40px 0;
+}
+.retainer-box h3{
+  font-family:var(--font-display);font-size:24px;font-weight:500;
+  color:var(--cream);margin-bottom:8px;
+}
+.retainer-box p{font-size:14px;color:var(--muted);margin-bottom:28px}
+.retainer-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  margin-bottom:24px;
+}
+.retainer-item{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--border);
+  border-radius:8px;padding:20px;
+}
+.retainer-item .r-amount{
+  font-family:var(--font-display);font-size:28px;font-weight:500;
+  color:var(--gold2);margin-bottom:4px;
+}
+.retainer-item .r-label{font-size:13px;color:var(--muted)}
+.retainer-item .r-detail{font-size:12px;color:var(--dim);margin-top:8px;line-height:1.5}
+
+/* ─── FINDING CARDS ─────────────────────────────────────────────── */
+.findings-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  margin:36px 0;
+}
+.finding-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;padding:24px;
+  transition:border-color 0.2s;
+}
+.finding-card:hover{border-color:var(--rust)}
+.finding-card.critical{border-left:3px solid #E85040}
+.finding-card.high{border-left:3px solid var(--rust)}
+.finding-card.medium{border-left:3px solid var(--gold)}
+.finding-severity{
+  font-family:var(--font-mono);font-size:9px;
+  letter-spacing:0.15em;text-transform:uppercase;
+  margin-bottom:10px;display:inline-block;
+  padding:3px 8px;border-radius:3px;
+}
+.finding-severity.critical{color:#E85040;background:rgba(232,80,64,0.1)}
+.finding-severity.high{color:var(--rust2);background:rgba(201,70,16,0.1)}
+.finding-severity.medium{color:var(--gold2);background:rgba(200,136,10,0.1)}
+.finding-title{
+  font-size:15px;font-weight:600;color:var(--cream);
+  margin-bottom:8px;line-height:1.3;
+}
+.finding-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.finding-fix{
+  margin-top:14px;padding-top:14px;
+  border-top:1px solid var(--border);
+  font-size:12px;color:var(--sage2);
+  display:flex;gap:8px;align-items:flex-start;
+}
+.finding-fix::before{content:"→";flex-shrink:0}
+
+/* ─── BEFORE/AFTER ─────────────────────────────────────────────── */
+.before-after{
+  display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  margin:36px 0;border-radius:10px;overflow:hidden;
+  border:1px solid var(--border);
+}
+.ba-panel{padding:28px;}
+.ba-before{background:rgba(232,80,64,0.08)}
+.ba-after{background:rgba(78,122,99,0.1)}
+.ba-label{
+  font-family:var(--font-mono);font-size:9px;
+  letter-spacing:0.15em;text-transform:uppercase;
+  margin-bottom:14px;display:block;
+}
+.ba-before .ba-label{color:#E85040}
+.ba-after .ba-label{color:var(--sage2)}
+.ba-text{font-size:14px;color:var(--text);line-height:1.7}
+
+/* ─── REVENUE BARS ──────────────────────────────────────────────── */
+.revenue-section{margin:48px 0}
+.revenue-total{
+  text-align:center;padding:40px;
+  background:linear-gradient(135deg, rgba(200,136,10,0.1) 0%, rgba(78,122,99,0.1) 100%);
+  border:1px solid var(--border);border-radius:12px;margin-bottom:36px;
+}
+.revenue-total .big-num{
+  font-family:var(--font-display);font-size:72px;font-weight:300;
+  color:var(--gold2);line-height:1;
+}
+.revenue-total .big-label{font-size:14px;color:var(--muted);margin-top:8px}
+
+.rev-bar-row{
+  display:grid;grid-template-columns:220px 1fr 100px;
+  gap:16px;align-items:center;margin-bottom:16px;
+}
+.rev-bar-label{font-size:13px;color:var(--text);font-weight:500}
+.rev-bar-track{
+  height:10px;background:var(--surface2);
+  border-radius:5px;overflow:hidden;
+  position:relative;
+}
+.rev-bar-fill{
+  height:100%;border-radius:5px;
+  width:0;transition:width 1.2s cubic-bezier(0.4,0,0.2,1);
+  background:linear-gradient(90deg, var(--rust), var(--gold2));
+}
+.rev-bar-amount{
+  font-family:var(--font-mono);font-size:13px;
+  color:var(--gold2);text-align:right;
+}
+
+/* ─── CALLOUT BOXES ─────────────────────────────────────────────── */
+.callout{
+  border:1px solid var(--border);border-radius:8px;
+  padding:24px 28px;margin:28px 0;
+  display:flex;gap:16px;align-items:flex-start;
+}
+.callout-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.callout-body .callout-title{
+  font-size:14px;font-weight:600;color:var(--cream);margin-bottom:4px;
+}
+.callout-body .callout-text{font-size:13px;color:var(--muted);line-height:1.6}
+.callout.warning{background:rgba(232,80,64,0.06);border-color:rgba(232,80,64,0.3)}
+.callout.info{background:rgba(78,122,99,0.06);border-color:rgba(78,122,99,0.3)}
+.callout.gold{background:rgba(200,136,10,0.06);border-color:rgba(200,136,10,0.3)}
+
+/* ─── MILESTONE TABLE ─────────────────────────────────────────────── */
+.milestone-table{width:100%;border-collapse:collapse;margin:36px 0}
+.milestone-table th{
+  text-align:left;padding:12px 16px;
+  font-family:var(--font-mono);font-size:10px;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--rust);border-bottom:1px solid var(--border);
+  background:var(--surface);
+}
+.milestone-table td{
+  padding:16px 16px;font-size:13px;
+  border-bottom:1px solid rgba(34,40,54,0.6);
+  vertical-align:top;line-height:1.5;
+}
+.milestone-table tr:last-child td{border-bottom:none}
+.milestone-table tr:hover td{background:rgba(255,255,255,0.015)}
+.phase-label{
+  font-family:var(--font-mono);font-size:10px;
+  color:var(--gold2);letter-spacing:0.08em;
+  display:block;margin-bottom:4px;
+}
+.phase-title{font-weight:600;color:var(--cream)}
+.milestone-dot{
+  width:8px;height:8px;border-radius:50%;
+  display:inline-block;margin-right:8px;
+  background:var(--rust);
+}
+
+/* ─── MODULE MENU ─────────────────────────────────────────────────── */
+.module-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  margin:36px 0;
+}
+.module-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:8px;padding:20px 22px;
+  transition:border-color 0.2s,transform 0.2s;
+  cursor:default;
+}
+.module-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.module-id{
+  font-family:var(--font-mono);font-size:9px;
+  color:var(--gold);letter-spacing:0.15em;
+  text-transform:uppercase;margin-bottom:10px;display:block;
+}
+.module-name{font-size:14px;font-weight:600;color:var(--cream);margin-bottom:6px}
+.module-desc{font-size:12px;color:var(--muted);line-height:1.5;margin-bottom:12px}
+.module-price{
+  font-family:var(--font-mono);font-size:12px;color:var(--gold2);
+}
+
+/* ─── SPRINT TIMELINE ─────────────────────────────────────────────── */
+.sprint-phases{display:flex;flex-direction:column;gap:28px;margin:36px 0}
+.sprint-phase{
+  display:grid;grid-template-columns:140px 1fr;gap:24px;
+  padding:24px;background:var(--surface);
+  border:1px solid var(--border);border-radius:8px;
+  border-left:3px solid var(--rust);
+}
+.phase-days{
+  font-family:var(--font-display);font-size:28px;font-weight:300;
+  color:var(--rust2);line-height:1;
+}
+.phase-days-label{font-size:12px;color:var(--muted);margin-top:4px}
+.phase-body h4{
+  font-size:15px;font-weight:600;color:var(--cream);margin-bottom:10px;
+}
+.phase-body ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.phase-body ul li{
+  font-size:13px;color:var(--muted);
+  padding-left:16px;position:relative;line-height:1.5;
+}
+.phase-body ul li::before{
+  content:"–";color:var(--rust);
+  position:absolute;left:0;
+}
+
+/* ─── QUOTE BLOCK ─────────────────────────────────────────────────── */
+.quote-block{
+  border-left:3px solid var(--gold);
+  padding:20px 28px;margin:36px 0;
+  background:var(--surface);border-radius:0 8px 8px 0;
+}
+.quote-text{
+  font-family:var(--font-display);font-size:20px;font-weight:300;
+  font-style:italic;color:var(--cream);line-height:1.5;
+  margin-bottom:12px;
+}
+.quote-attr{font-size:12px;color:var(--muted);font-family:var(--font-mono)}
+
+/* ─── PROSE ───────────────────────────────────────────────────────── */
+.prose{max-width:720px}
+.prose h3{
+  font-family:var(--font-display);font-size:22px;font-weight:500;
+  color:var(--cream);margin:40px 0 14px;
+}
+.prose h4{
+  font-size:14px;font-weight:600;color:var(--cream);
+  letter-spacing:0.02em;margin:28px 0 10px;
+  text-transform:uppercase;font-size:11px;
+  font-family:var(--font-mono);letter-spacing:0.12em;
+  color:var(--gold);
+}
+.prose p{
+  font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:18px;
+}
+.prose strong{color:var(--cream);font-weight:600}
+.prose em{color:var(--gold2);font-style:italic}
+
+/* ─── INFO ROW ─────────────────────────────────────────────────────── */
+.info-row{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1px;background:var(--border);border-radius:8px;
+  overflow:hidden;margin:36px 0;
+}
+.info-cell{
+  background:var(--surface);padding:20px 24px;
+}
+.info-cell .ic-label{
+  font-family:var(--font-mono);font-size:9px;
+  color:var(--muted);letter-spacing:0.12em;
+  text-transform:uppercase;margin-bottom:6px;
+}
+.info-cell .ic-value{
+  font-size:15px;font-weight:500;color:var(--cream);
+}
+
+/* ─── SIGNATURE / FOOTER ─────────────────────────────────────────── */
+.footer{
+  max-width:900px;margin:0 auto;
+  padding:60px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid var(--border);
+}
+.footer-brand{display:flex;align-items:center;gap:14px}
+.footer-logo{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--border)}
+.footer-name{
+  font-family:var(--font-display);font-size:15px;font-weight:500;
+  color:var(--cream);
+}
+.footer-org{font-size:12px;color:var(--muted)}
+.footer-tagline{
+  font-family:var(--font-display);font-size:13px;font-style:italic;
+  color:var(--dim);
+}
+
+/* ─── ANIMATIONS ──────────────────────────────────────────────────── */
+.fade-up{
+  opacity:0;transform:translateY(20px);
+  transition:opacity 0.6s ease,transform 0.6s ease;
+}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ─── UTILITY ─────────────────────────────────────────────────────── */
+.divider{
+  height:1px;background:var(--border);
+  margin:48px 0;
+}
+.tag{
+  display:inline-block;
+  font-family:var(--font-mono);font-size:10px;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding:4px 10px;border-radius:4px;
+  background:var(--surface2);color:var(--muted);
+  margin-right:6px;margin-bottom:6px;
+}
+.tag.rust{background:rgba(201,70,16,0.12);color:var(--rust2)}
+.tag.gold{background:rgba(200,136,10,0.1);color:var(--gold2)}
+.tag.sage{background:rgba(78,122,99,0.12);color:var(--sage2)}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────────── */
+@media(max-width:700px){
+  .nav-links{display:none}
+  .section{padding:60px 24px}
+  .cover-stats{grid-template-columns:1fr 1fr;}
+  .cover-stats .stat-box:last-child{grid-column:1/-1}
+  .findings-grid,.before-after,.retainer-grid,.module-grid{grid-template-columns:1fr}
+  .sprint-phase{grid-template-columns:1fr}
+  .rev-bar-row{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+  .rev-bar-label{grid-column:1;grid-row:1}
+  .rev-bar-amount{grid-column:2;grid-row:1;}
+  .rev-bar-track{grid-column:1/-1;grid-row:2}
+  .footer{flex-direction:column;gap:20px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     NAVIGATION
+═══════════════════════════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-brand">
+    <img src="../images/strategy-nav-logo.png" alt="Fiddler on the Rock" class="nav-logo">
+    <span class="nav-title">Fiddler on the Rock</span>
+  </div>
+  <div class="nav-links">
+    <a href="#cover" class="nav-link">Overview</a>
+    <a href="#doc1" class="nav-link">SEO Audit</a>
+    <a href="#doc2" class="nav-link">UX Audit</a>
+    <a href="#doc3" class="nav-link">Living Music</a>
+    <a href="#doc4" class="nav-link">30-Day Sprint</a>
+    <a href="#doc5" class="nav-link">Grand Machine</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     COVER
+═══════════════════════════════════════════════════════════════ -->
+<section id="cover">
+  <div class="hero-photo"></div>
+  <div class="cover-inner">
+    <img src="../images/strategy-nav-logo.png" alt="Fiddler on the Rock" class="cover-logo">
+    <p class="cover-eyebrow">Jason Eli Sayers Foundation — Strategic Partnership Package</p>
+    <h1 class="cover-title">The <em>Complete</em> Growth<br>Strategy for Tyler Carson</h1>
+    <p class="cover-subtitle">Fiddler on the Rock &nbsp;·&nbsp; Sedona, AZ &nbsp;·&nbsp; April 2026 &nbsp;·&nbsp; Prepared by J. Eli Sayers</p>
+
+    <div class="cover-stats">
+      <div class="stat-box">
+        <div class="stat-num">$39.9K</div>
+        <div class="stat-label">Gross revenue<br>Sept '25 – Apr '26</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">$300K</div>
+        <div class="stat-label">Realistic 12-month<br>revenue target</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">$2,500</div>
+        <div class="stat-label">Retainer to start<br>immediately</div>
+      </div>
+    </div>
+
+    <div class="toc">
+      <a href="#doc1" class="toc-item">
+        <span class="toc-num">DOC 01</span>
+        <span class="toc-text">Forensic SEO &amp; Technical Performance Audit</span>
+        <span class="toc-tag">Critical</span>
+      </a>
+      <a href="#doc2" class="toc-item">
+        <span class="toc-num">DOC 02</span>
+        <span class="toc-text">Full Design, UI/UX &amp; Friction Audit</span>
+        <span class="toc-tag">Critical</span>
+      </a>
+      <a href="#doc3" class="toc-item">
+        <span class="toc-num">DOC 03</span>
+        <span class="toc-text">The Living Music Narrative Strategy</span>
+        <span class="toc-tag">Strategy</span>
+      </a>
+      <a href="#doc4" class="toc-item">
+        <span class="toc-num">DOC 04</span>
+        <span class="toc-text">Phase 1: The 30-Day Sprint &amp; Retainer Structure</span>
+        <span class="toc-tag">Action</span>
+      </a>
+      <a href="#doc5" class="toc-item">
+        <span class="toc-num">DOC 05</span>
+        <span class="toc-text">The Grand Machine: 12-Month Ecosystem</span>
+        <span class="toc-tag">Vision</span>
+      </a>
+    </div>
+
+    <p class="scroll-hint">↓ &nbsp; scroll to explore</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DOC 01 — SEO AUDIT
+═══════════════════════════════════════════════════════════════ -->
+<section id="doc1" class="section fade-up">
+  <div class="section-header">
+    <span class="section-number">Document 01 &nbsp;/&nbsp; Forensic Audit</span>
+    <h2 class="section-title">SEO &amp; Technical<br><span>Performance Audit</span></h2>
+    <p class="section-lead">Your website is functionally invisible to Google. Tourists searching for unique Sedona experiences right now cannot find you — not because your product isn't remarkable, but because the technical foundation is actively working against you.</p>
+  </div>
+
+  <div class="info-row">
+    <div class="info-cell"><div class="ic-label">Site</div><div class="ic-value">FiddlerontheRock.com</div></div>
+    <div class="info-cell"><div class="ic-label">Platform</div><div class="ic-value">Wix</div></div>
+    <div class="info-cell"><div class="ic-label">Issues Found</div><div class="ic-value">14 Critical / High</div></div>
+    <div class="info-cell"><div class="ic-label">Est. Revenue Lost / Mo</div><div class="ic-value">$4,000 – $8,000</div></div>
+  </div>
+
+  <div class="callout warning">
+    <span class="callout-icon">⚠</span>
+    <div class="callout-body">
+      <div class="callout-title">Homepage H1 Tag: "Shop the Store"</div>
+      <div class="callout-text">Google's most important on-page signal is the H1 heading. Yours says "Shop the Store." Not "Live Violin Concerts in Sedona." Not "Fiddler on the Rock." A merchandise call-to-action is telling Google your site is an e-commerce shop. This single issue suppresses you across every concert-related search query.</div>
+    </div>
+  </div>
+
+  <div class="findings-grid">
+    <div class="finding-card critical fade-up">
+      <span class="finding-severity critical">Critical</span>
+      <div class="finding-title">H1 Tag: "Shop the Store"</div>
+      <div class="finding-desc">Google reads your homepage headline as a merchandise store. Every tourist searching "live violin Sedona" or "unique things to do in Sedona" is invisible to you because your page doesn't signal what you actually do.</div>
+      <div class="finding-fix">Fix: Replace with "Experience Live Violin Under the Sedona Sky — Fiddler on the Rock" or similar keyword-rich headline tied to the concert experience.</div>
+    </div>
+    <div class="finding-card critical fade-up">
+      <span class="finding-severity critical">Critical</span>
+      <div class="finding-title">Zero Google Event Schema (JSON-LD)</div>
+      <div class="finding-desc">Google offers a dedicated "Events" search feature that shows upcoming concerts, dates, prices, and a direct buy button. Without JSON-LD Event Schema, your concerts are completely absent from this premium placement — free traffic you're leaving on the table every single week.</div>
+      <div class="finding-fix">Fix: Add structured data for each concert: name, date, location (lat/lng), performer, ticket URL, price range. This alone can produce a direct ticket link on Google's first page.</div>
+    </div>
+    <div class="finding-card high fade-up">
+      <span class="finding-severity high">High</span>
+      <div class="finding-title">Indexing &amp; Robots.txt Issues</div>
+      <div class="finding-desc">Pages on your site appear to be blocked from Google's crawlers, or are not being consistently indexed. Your concert listings, biography, and key landing pages may not exist in Google's index at all.</div>
+      <div class="finding-fix">Fix: Audit robots.txt, submit XML sitemap to Google Search Console, and verify all key pages are indexed within 48 hours of sprint start.</div>
+    </div>
+    <div class="finding-card high fade-up">
+      <span class="finding-severity high">High</span>
+      <div class="finding-title">Largest Contentful Paint (LCP) Failing</div>
+      <div class="finding-desc">Google's Core Web Vitals score your site's load speed. A poor LCP score (slow image/hero load) directly suppresses your search rankings. Wix sites are notoriously slow on mobile — where 70%+ of Sedona tourist searches happen.</div>
+      <div class="finding-fix">Fix: Compress all images to WebP, defer non-critical JS, enable Wix's performance mode. Longer-term: migration to Next.js resolves this structurally.</div>
+    </div>
+    <div class="finding-card high fade-up">
+      <span class="finding-severity high">High</span>
+      <div class="finding-title">No UTM Tracking on Booking Links</div>
+      <div class="finding-desc">You have no visibility into where your ticket buyers come from. Email? Instagram? Google? A TripAdvisor referral? Without UTM parameters, every marketing dollar you spend is invisible — you can't double down on what works or cut what doesn't.</div>
+      <div class="finding-fix">Fix: Implement UTM tagging on all booking links within Days 1–3. Costs nothing; takes 2 hours; provides data forever.</div>
+    </div>
+    <div class="finding-card medium fade-up">
+      <span class="finding-severity medium">Medium</span>
+      <div class="finding-title">Missing / Duplicate Meta Descriptions</div>
+      <div class="finding-desc">Meta descriptions are the text people see under your link in Google search results. Most of your pages either have no meta description (Google writes one for you, usually poorly) or duplicate the same generic text across multiple pages.</div>
+      <div class="finding-fix">Fix: Write unique, keyword-rich meta descriptions for every key page. Include "Sedona," "live violin," "outdoor concert," and "sunset experience."</div>
+    </div>
+    <div class="finding-card medium fade-up">
+      <span class="finding-severity medium">Medium</span>
+      <div class="finding-title">No Local Business / Performer Schema</div>
+      <div class="finding-desc">Google's "Knowledge Panel" for local businesses and performing artists requires structured data. You have CBS Mornings coverage, a 6-album discography, and years of Sedona performances — none of this authority is being surfaced to Google in a machine-readable format.</div>
+      <div class="finding-fix">Fix: Add MusicGroup/LocalBusiness JSON-LD schema. This establishes authority and can trigger a rich knowledge panel in Google results.</div>
+    </div>
+    <div class="finding-card medium fade-up">
+      <span class="finding-severity medium">Medium</span>
+      <div class="finding-title">TripAdvisor &amp; Google Business Profile Gaps</div>
+      <div class="finding-desc">Sedona tourists heavily rely on TripAdvisor and Google Maps for activity discovery. The Fiddler on the Rock listing on both platforms is either incomplete, unclaimed, or not actively managed — a significant missed referral channel.</div>
+      <div class="finding-fix">Fix: Claim/optimize Google Business Profile and TripAdvisor Experience listing. Add photos, show schedule, booking link, and respond to all existing reviews.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="prose">
+    <h3>What Google Could Show the World</h3>
+    <p>With proper JSON-LD Event Schema, every one of your concerts becomes eligible to appear directly in Google's event search results — complete with date, location, price, and a direct link to buy tickets. Tourists planning a Sedona trip search "things to do in Sedona this weekend" and see your concert in the results, before they ever reach TripAdvisor or any competitor.</p>
+
+    <div class="callout info">
+      <span class="callout-icon">◎</span>
+      <div class="callout-body">
+        <div class="callout-title">The Google Event Placement Opportunity</div>
+        <div class="callout-text">Searches like "live music Sedona," "outdoor concerts Sedona," and "things to do in Sedona this weekend" generate thousands of queries monthly. With proper schema markup, your events can appear above organic results in Google's dedicated Events carousel. This is free traffic that no paid ad can replicate — and it's completely untapped right now.</div>
+      </div>
+    </div>
+
+    <h3>The 48-Hour Quick Wins</h3>
+    <p>Three changes deployable within 48 hours of sprint start that will measurably improve Google visibility before any paid spend begins: (1) Replace the H1 "Shop the Store" with a concert-focused headline, (2) Submit an XML sitemap to Google Search Console, and (3) Add UTM parameters to every booking link to begin data collection immediately. None of these require development resources or budget.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DOC 02 — UI/UX AUDIT
+═══════════════════════════════════════════════════════════════ -->
+<section id="doc2" class="section fade-up">
+  <div class="section-header">
+    <span class="section-number">Document 02 &nbsp;/&nbsp; Design Audit</span>
+    <h2 class="section-title">Full Design, UI/UX<br>&amp; <span>Friction Audit</span></h2>
+    <p class="section-lead">Every point of friction between a visitor and a purchased ticket is money that disappears. This audit maps every friction point on fiddleontherock.com — the broken buttons, the navigation traps, the abandoned booking moments — and assigns a revenue cost to each.</p>
+  </div>
+
+  <div class="info-row">
+    <div class="info-cell"><div class="ic-label">Friction Points</div><div class="ic-value">11 Identified</div></div>
+    <div class="info-cell"><div class="ic-label">Avg Booking Value</div><div class="ic-value">$135.67</div></div>
+    <div class="info-cell"><div class="ic-label">Estimated Conversion Rate</div><div class="ic-value">&lt; 2% (estimated)</div></div>
+    <div class="info-cell"><div class="ic-label">Industry Target</div><div class="ic-value">4 – 6%</div></div>
+  </div>
+
+  <div class="findings-grid">
+    <div class="finding-card critical fade-up">
+      <span class="finding-severity critical">Critical</span>
+      <div class="finding-title">/concerts Page Navigation Trap</div>
+      <div class="finding-desc">Visitors who navigate to the /concerts page cannot return to the homepage. The navigation bar disappears or becomes non-functional, stranding the user with no path to explore, book, or convert. Many simply close the tab — a complete lost opportunity on what should be the highest-traffic page.</div>
+      <div class="finding-fix">Fix: Restore global navigation header on all internal pages. This is the single most urgent UX fix on the site.</div>
+    </div>
+    <div class="finding-card critical fade-up">
+      <span class="finding-severity critical">Critical</span>
+      <div class="finding-title">Wix Social Media Placeholder Icons</div>
+      <div class="finding-desc">The site's social media icons in the footer are Wix placeholder icons — they are not linked to your actual social accounts. Visitors who click to follow on Instagram, Facebook, or TikTok land on nothing. This destroys trust instantly and kills the long-term fan relationship before it starts.</div>
+      <div class="finding-fix">Fix: Remove all placeholder icons immediately. Link only to active, verified social accounts. Quality over quantity — one real account beats five broken links.</div>
+    </div>
+    <div class="finding-card high fade-up">
+      <span class="finding-severity high">High</span>
+      <div class="finding-title">Broken "Start Now" Button</div>
+      <div class="finding-desc">A primary call-to-action button — likely the highest-traffic click target on the page — is broken or leads to a dead end. For a site averaging $135 per transaction, every 10 broken clicks costs roughly $1,350 in lost potential revenue.</div>
+      <div class="finding-fix">Fix: Audit every CTA button across all pages. Ensure each resolves to a functioning booking flow within 48 hours of sprint start.</div>
+    </div>
+    <div class="finding-card high fade-up">
+      <span class="finding-severity high">High</span>
+      <div class="finding-title">Multi-Step Booking Widget Friction</div>
+      <div class="finding-desc">The current booking process involves multiple popup windows, redirect steps, and context switches between the Wix site and the BookingTerminal system. Every additional click in a purchase flow reduces conversion by an estimated 10–15%. The current flow may have 5–7 unnecessary steps.</div>
+      <div class="finding-fix">Fix: Streamline to a direct, single-click path from "Book Now" to payment confirmation. Embed the booking widget natively rather than using popups and redirects.</div>
+    </div>
+    <div class="finding-card high fade-up">
+      <span class="finding-severity high">High</span>
+      <div class="finding-title">Middle-Man Shows Page</div>
+      <div class="finding-desc">The concerts page prominently features shows booked through third-party promoters (Voyagers, etc.), sending ticket revenue and data to middlemen. Visitors who buy through these links are not added to your email list, not tracked in BookingTerminal, and not in the Fiddler on the Rock ecosystem. You perform the show; someone else owns the relationship.</div>
+      <div class="finding-fix">Fix: Restructure the concerts page to prioritize direct-booking RRNC shows above all others. Third-party shows, if listed at all, should be secondary with a clear messaging distinction.</div>
+    </div>
+    <div class="finding-card medium fade-up">
+      <span class="finding-severity medium">Medium</span>
+      <div class="finding-title">Email Opt-In Not Connected to the Full System</div>
+      <div class="finding-desc">The homepage has an email opt-in — good. But right now it's collecting addresses with no automated follow-up behind it. The average Sedona tourist browses weeks before their trip, signs up, and then hears nothing. That warm lead goes cold. The opt-in is the start of a relationship; without an automated welcome sequence, it's just a list of names sitting in a waiting room.</div>
+      <div class="finding-fix">Fix: Connect the existing opt-in to the full email automation system — welcome sequence, show alerts, and post-concert follow-ups — so every signup immediately enters a journey rather than a waiting room.</div>
+    </div>
+    <div class="finding-card medium fade-up">
+      <span class="finding-severity medium">Medium</span>
+      <div class="finding-title">Mobile Experience Degradation</div>
+      <div class="finding-desc">70%+ of Sedona tourist searches happen on mobile. The current site was not designed mobile-first — text overlaps images, CTA buttons are undersized for tap targets, and the booking widget is particularly difficult on small screens. This is where the most conversion is being lost.</div>
+      <div class="finding-fix">Fix: Prioritize mobile UX in all redesign decisions. Test every booking flow on iOS Safari and Android Chrome before launch.</div>
+    </div>
+    <div class="finding-card medium fade-up">
+      <span class="finding-severity medium">Medium</span>
+      <div class="finding-title">No Social Proof / Review Integration</div>
+      <div class="finding-desc">You have genuine fans who love the experience, but the homepage doesn't show it. No testimonials, no star ratings, no "As seen on CBS Mornings" badge, no quote from a real attendee. For a first-time Sedona visitor deciding between four activity options, social proof is the deciding factor.</div>
+      <div class="finding-fix">Fix: Add a testimonial strip to the homepage with 3–5 genuine quotes pulled from Google Reviews, BookingTerminal feedback, or email responses. Include the CBS Mornings credential prominently.</div>
+    </div>
+  </div>
+
+  <div class="finding-card medium fade-up" style="margin-bottom:16px;">
+    <span class="finding-severity medium">Medium</span>
+    <div class="finding-title">No Branded Business Email</div>
+    <div class="finding-desc">Booking confirmations, press inquiries, and client communications are currently going out from <strong>thefiddlerontherock@gmail.com</strong>. It works — but it undercuts the professional positioning this brand deserves. A fan who just paid $249 for a private sunset concert deserves a confirmation from <em>tyler@fiddleontherock.com</em>. It's a small detail that signals either "established professional" or "side project" before a single note is played.</div>
+    <div class="finding-fix">Fix: Branded email address set up on Day 1 of the sprint. Costs less than $10/month. Changes the perception of every single outbound communication immediately.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="before-after fade-up">
+    <div class="ba-panel ba-before">
+      <span class="ba-label">Current User Journey</span>
+      <div class="ba-text">Tourist Googles "things to do in Sedona" → doesn't find FOTR (SEO gap) → finds FOTR via TripAdvisor referral → lands on homepage (H1 says "Shop the Store") → clicks Concerts → navigation trap, can't go back → finds a booking widget → multiple popups → abandons → books something else.</div>
+    </div>
+    <div class="ba-panel ba-after">
+      <span class="ba-label">Fixed User Journey</span>
+      <div class="ba-text">Tourist Googles "live violin Sedona" → sees FOTR in Google Events carousel (schema markup) → lands on homepage with clear concert headline → one-click to booking → embedded calendar shows available dates → payment in under 60 seconds → confirmation email with merch offer → added to the email list for future shows.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DOC 03 — LIVING MUSIC STRATEGY
+═══════════════════════════════════════════════════════════════ -->
+<section id="doc3" class="section fade-up">
+  <div class="section-header">
+    <span class="section-number">Document 03 &nbsp;/&nbsp; Brand Strategy</span>
+    <h2 class="section-title">The <em>Living Music</em><br><span>Narrative Strategy</span></h2>
+    <p class="section-lead">You don't perform music. You summon it. There's a profound difference — and it's the most commercially powerful idea buried in your biography page right now. The strategy here is to excavate it and build every piece of communication around it.</p>
+  </div>
+
+  <div class="quote-block fade-up">
+    <div class="quote-text">"There is a moment in a Tyler Carson concert where the music stops being something you hear and starts being something you feel in your chest. That is not technique. That is presence. And it cannot be automated, replicated, or streamed away."</div>
+    <div class="quote-attr">— The core promise of the Fiddler on the Rock brand</div>
+  </div>
+
+  <div class="prose">
+    <h3>The Central Idea: Living Music</h3>
+    <p>The phrase "Living Music" — music that breathes, that emerges from the landscape and the moment rather than from rehearsal and performance — is the most powerful brand concept available to you. It is currently buried in your bio. It should be the first three words a visitor sees.</p>
+    <p>Living Music is not a genre. It is a philosophy. It positions you against every recorded musician, every Spotify playlist, every AI-generated "ambient Sedona" track. You cannot download presence. You cannot stream the red rock sunset at magic hour with a violin resonating off canyon walls. This is the irreplaceable moat.</p>
+
+    <h3>The Hero Archetype</h3>
+    <p>You are not the entertainer. You are the <strong>guide</strong>. In the customer's story, the tourist arrives in Sedona searching for something they can't quite name — a deeper connection, a moment that justifies the trip, an experience that becomes a memory. You don't perform at them. You lead them somewhere. This is the Hero's Journey framing, and it's deeply true to who you actually are.</p>
+
+    <h4>The Three-Tiered Problem Framework</h4>
+    <p>Every visitor arrives with three layers of need: <strong>External</strong> — they want a unique, memorable Sedona experience. <strong>Internal</strong> — they want to feel something real in a world that often feels manufactured. <strong>Philosophical</strong> — they want to believe that art and nature still intersect in ways that matter. You solve all three simultaneously. The website and marketing currently address none of them.</p>
+
+    <h4>The Voice Loss Narrative as Brand Asset</h4>
+    <p>Your personal story — losing your singing voice and discovering the violin as a new language — is not a backstory. It is the brand. The story of someone who experienced profound loss and turned it into a more authentic art form is <strong>the most resonant narrative available</strong> to position you at high-ticket venues, wellness retreats, and media coverage. CBS Mornings found this story newsworthy. It should be on the homepage.</p>
+
+    <h3>Reframing "Living Music" Across All Touchpoints</h3>
+  </div>
+
+  <div class="before-after fade-up">
+    <div class="ba-panel ba-before">
+      <span class="ba-label">Current Homepage Headline</span>
+      <div class="ba-text">"Fiddler on the Rock" [logo] "Shop the Store" — Generic identity, no emotional hook, tells the visitor nothing about what they will experience or why it matters.</div>
+    </div>
+    <div class="ba-panel ba-after">
+      <span class="ba-label">New Homepage Headline</span>
+      <div class="ba-text">"Living Music Under the Open Sedona Sky" — A concert experience unlike anything you've heard. Performed on the red rocks. Felt in the chest. Remembered for years.</div>
+    </div>
+  </div>
+
+  <div class="before-after fade-up">
+    <div class="ba-panel ba-before">
+      <span class="ba-label">Current Bio Opening</span>
+      <div class="ba-text">"Tyler Carson is a violinist and performer based in Sedona, Arizona..." — functional, forgettable, indistinguishable from any musician's bio.</div>
+    </div>
+    <div class="ba-panel ba-after">
+      <span class="ba-label">New Bio Opening</span>
+      <div class="ba-text">"After losing his voice, Tyler Carson found a deeper one. What began as an act of reinvention in the canyons of Sedona became something audiences describe not as a concert — but as a conversation between the music, the landscape, and themselves."</div>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h3>The Sedona Advantage</h3>
+    <p>Most musicians compete against other musicians. You compete against <em>experiences</em> — jeep tours, vortex walks, hot air balloons, spa retreats. In that context, he wins — because he offers something none of those provide: a moment of genuine emotional resonance in a landscape purpose-built for awe. The marketing should lean into this comparison, not shy away from it. Sedona's 3+ million annual visitors are not looking for background music. They are looking for transformation. That's what you deliver.</p>
+
+    <div class="callout gold">
+      <span class="callout-icon">◈</span>
+      <div class="callout-body">
+        <div class="callout-title">The Untapped SEO + Brand Intersection</div>
+        <div class="callout-text">Keywords like "unique things to do in Sedona," "best Sedona experience," and "Sedona spiritual experience" get thousands of searches monthly. A site built around the Living Music narrative — with genuine storytelling, CBS Mornings embeds, and visitor testimonials — naturally captures these searches. You don't have to choose between brand and SEO. They are the same strategy here.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DOC 04 — 30-DAY SPRINT
+═══════════════════════════════════════════════════════════════ -->
+<section id="doc4" class="section fade-up">
+  <div class="section-header">
+    <span class="section-number">Document 04 &nbsp;/&nbsp; Action Plan</span>
+    <h2 class="section-title">Phase 1: The<br><span>30-Day Sprint</span></h2>
+    <p class="section-lead">Everything in Documents 1 through 3 is the diagnosis. This is the prescription. A focused 30-day execution plan that stops the revenue leaks, launches the email funnel, and gets the Red Rock Nature Concert booking page live — all within the first month of our partnership.</p>
+  </div>
+
+  <!-- Retainer Box -->
+  <div class="retainer-box fade-up">
+    <h3>Suggested Partnership &amp; Compensation Structure</h3>
+    <p>Transparent, aligned, and designed to grow as you grow. The retainer covers immediate sprint execution. The revenue share ensures we are building something together, not just billing hours.</p>
+    <div class="retainer-grid">
+      <div class="retainer-item">
+        <div class="r-amount">$2,500</div>
+        <div class="r-label">Month 1 — Launch Sprint Fee</div>
+        <div class="r-detail">A one-time launch investment covering the full sprint: every audit fix, the email funnel build, the RRNC booking page, the Living Music rebrand, and all deliverables in this package. This is the heaviest lift — and it only happens once.</div>
+      </div>
+      <div class="retainer-item">
+        <div class="r-amount">$500</div>
+        <div class="r-label">Month 2+ — Ongoing Monthly Retainer</div>
+        <div class="r-detail">A lean, sustainable monthly retainer covering ongoing strategy, weekly check-ins, email management, content direction, and partnership continuity. The rev share percentages below are where the real upside lives for both of us — this just keeps the engine running.</div>
+      </div>
+      <div class="retainer-item">
+        <div class="r-amount">20%</div>
+        <div class="r-label">RRNC Bookings via Eli's Page</div>
+        <div class="r-detail">On all ticket revenue generated through the dedicated RRNC landing page and booking funnel built and managed by Eli. You keep 80%.</div>
+      </div>
+      <div class="retainer-item">
+        <div class="r-amount">10%</div>
+        <div class="r-label">Email-Attributed Ticket Sales</div>
+        <div class="r-detail">On ticket revenue directly attributed to the email campaigns Eli builds, writes, and sends. Tracked via UTM parameters — transparent and auditable.</div>
+      </div>
+      <div class="retainer-item">
+        <div class="r-amount">15%</div>
+        <div class="r-label">Sourced Private Bookings</div>
+        <div class="r-detail">On private RRNC sessions, corporate retreats, or exclusive events that Eli sources directly. You keep 85% of all sourced private bookings.</div>
+      </div>
+      <div class="retainer-item">
+        <div class="r-amount">20%</div>
+        <div class="r-label">Online Merch Revenue</div>
+        <div class="r-detail">On all online store sales. Eli designs, sources, orders, and promotes all new Merch 2.0 product lines — including limited-edition dated show drops and the Designer Artifact series. Does not apply to in-person cash merch sales you handle directly.</div>
+      </div>
+      <div class="retainer-item">
+        <div class="r-amount">15%</div>
+        <div class="r-label">Inner Circle Subscription Revenue</div>
+        <div class="r-detail">On all monthly subscription revenue from the Inner Circle PWA. As the member base grows, this stream compounds passively. At 500 members × $10/mo, that's $750/mo to Eli — growing with no additional effort from either party.</div>
+      </div>
+      <div class="retainer-item">
+        <div class="r-amount">0%</div>
+        <div class="r-label">In-Person Sales &amp; Direct Bookings</div>
+        <div class="r-detail">You keep 100% of in-person concert ticket sales, cash merch sales, and any direct bookings you manage yourself. The partnership is additive, not extractive.</div>
+      </div>
+    </div>
+    <div class="callout info" style="margin-top:0;margin-bottom:0;">
+      <span class="callout-icon">◎</span>
+      <div class="callout-body">
+        <div class="callout-title">Why this structure works for you</div>
+        <div class="callout-text">The $2,500 retainer covers real execution costs for immediate, tangible deliverables. The rev share percentages are performance-linked — Eli only earns more when you earn more. There is no scenario where you pay more and get less. As the partnership matures and revenue grows, both parties grow together.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sprint-phases fade-up">
+    <div class="sprint-phase">
+      <div>
+        <div class="phase-days">Foundation</div>
+        <div class="phase-days-label">Technical Rescue</div>
+      </div>
+      <div class="phase-body">
+        <h4>Stop the Leaks. Build the Foundation.</h4>
+        <ul>
+          <li>Set up branded business email (<strong>tyler@fiddleontherock.com</strong>) — every booking confirmation, every press inquiry, every campaign goes out from a professional address, not a personal Gmail. First impressions matter at every touchpoint.</li>
+          <li>Replace H1 "Shop the Store" with concert-focused headline across all key pages</li>
+          <li>Fix /concerts navigation trap — restore global nav header site-wide</li>
+          <li>Remove all Wix placeholder social icons; link only to active accounts</li>
+          <li>Fix all broken CTA buttons and booking redirect flows</li>
+          <li>Implement UTM tracking on every booking link in BookingTerminal</li>
+          <li>Submit XML sitemap to Google Search Console; verify key page indexing</li>
+          <li>Add JSON-LD Event Schema to all upcoming concert listings</li>
+          <li>Claim and optimize Google Business Profile and TripAdvisor Experience listing</li>
+          <li>Add email capture to homepage — connected to the full automation system</li>
+          <li>Audit and compress all site images for LCP performance improvement</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sprint-phase">
+      <div>
+        <div class="phase-days">Launch</div>
+        <div class="phase-days-label">Email &amp; Content</div>
+      </div>
+      <div class="phase-body">
+        <h4>Resurrect the List. Start the Conversation.</h4>
+        <ul>
+          <li>Migrate existing email list to the new platform; segment by engagement level and purchase history</li>
+          <li>Write and send a "List Resurrection" email sequence — a 3-part series re-introducing your story to everyone who signed up and never heard back</li>
+          <li>Launch the Living Music narrative on homepage — updated hero copy, voice-loss bio, CBS Mornings embed</li>
+          <li>Add social proof strip to homepage: 3–5 genuine testimonials + "As Seen on CBS Mornings" badge</li>
+          <li>Set up automated post-concert email: merch offer 24 hours after each show, triggered automatically</li>
+          <li>Link all active social accounts; create posting schedule for high-season content</li>
+          <li>Deploy first batch of content: 3 short-form videos from existing concert footage</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sprint-phase">
+      <div>
+        <div class="phase-days">Conversion</div>
+        <div class="phase-days-label">Revenue &amp; Results</div>
+      </div>
+      <div class="phase-body">
+        <h4>Turn Traffic into Revenue.</h4>
+        <ul>
+          <li>Launch dedicated RRNC landing page with embedded booking calendar (tracked via UTM)</li>
+          <li>RRNC private session pricing: $1,200 / group concert pricing: $199–$249/person (min 6 guests)</li>
+          <li>Set up "Request a Private Show" inquiry form with automated response and follow-up sequence</li>
+          <li>Deploy welcome sequence for all new email subscribers (5-email automated series)</li>
+          <li>Restructure concerts page: direct-booking shows prioritized above any third-party listings</li>
+          <li>30-day report: baseline metrics (traffic, conversions, email signups, booking attribution)</li>
+          <li>Strategy call: review data, confirm Month 2 priorities, discuss Phase 2 modules</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout gold fade-up">
+    <span class="callout-icon">◈</span>
+    <div class="callout-body">
+      <div class="callout-title">Projected 30-Day Outcome</div>
+      <div class="callout-text">With the navigation trap fixed, UTM tracking live, and the RRNC funnel launched during peak Sedona season (April–June), a conservative estimate is 8–12 additional private RRNC bookings in the first 30 days. At $199–$249/person average with 6-person minimums, that's $9,552–$17,928 in attributable new revenue — against a $2,500 retainer. That's a 4–7x return in Month 1 alone, before email or SEO improvements compound.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     DOC 05 — THE GRAND MACHINE
+═══════════════════════════════════════════════════════════════ -->
+<section id="doc5" class="section fade-up">
+  <div class="section-header">
+    <span class="section-number">Document 05 &nbsp;/&nbsp; 12-Month Vision</span>
+    <h2 class="section-title">The <em>Grand Machine</em></h2>
+    <p class="section-lead">Your goal is to double your revenue. That is, with respect, thinking too small. The infrastructure we are building does not point to $160K. It points to $300K — and this document shows exactly how every dollar gets there.</p>
+  </div>
+
+  <!-- Revenue Math -->
+  <div class="revenue-section fade-up">
+    <div class="revenue-total">
+      <div class="big-num">$300K</div>
+      <div class="big-label">Realistic 12-month revenue target &nbsp;·&nbsp; Built from 7 distinct streams</div>
+    </div>
+
+    <div class="rev-bar-row">
+      <div class="rev-bar-label">Concerts (Improved Conversion)</div>
+      <div class="rev-bar-track"><div class="rev-bar-fill" data-width="62"></div></div>
+      <div class="rev-bar-amount">$160,000</div>
+    </div>
+    <div class="rev-bar-row">
+      <div class="rev-bar-label">Inner Circle Subscriptions</div>
+      <div class="rev-bar-track"><div class="rev-bar-fill" data-width="23"></div></div>
+      <div class="rev-bar-amount">$60,000</div>
+    </div>
+    <div class="rev-bar-row">
+      <div class="rev-bar-label">Merch 2.0 (Designer Artifacts)</div>
+      <div class="rev-bar-track"><div class="rev-bar-fill" data-width="12"></div></div>
+      <div class="rev-bar-amount">$30,000</div>
+    </div>
+    <div class="rev-bar-row">
+      <div class="rev-bar-label">Private RRNC Sessions</div>
+      <div class="rev-bar-track"><div class="rev-bar-fill" data-width="10"></div></div>
+      <div class="rev-bar-amount">$24,000</div>
+    </div>
+    <div class="rev-bar-row">
+      <div class="rev-bar-label">Digital Downloads (Healing)</div>
+      <div class="rev-bar-track"><div class="rev-bar-fill" data-width="5"></div></div>
+      <div class="rev-bar-amount">$12,000</div>
+    </div>
+    <div class="rev-bar-row">
+      <div class="rev-bar-label">Streaming &amp; YouTube Royalties</div>
+      <div class="rev-bar-track"><div class="rev-bar-fill" data-width="4"></div></div>
+      <div class="rev-bar-amount">$8,000</div>
+    </div>
+    <div class="rev-bar-row">
+      <div class="rev-bar-label">High-Ticket / National Venues</div>
+      <div class="rev-bar-track"><div class="rev-bar-fill" data-width="2"></div></div>
+      <div class="rev-bar-amount">$6,000</div>
+    </div>
+
+    <div class="callout info" style="margin-top:32px;">
+      <span class="callout-icon">◎</span>
+      <div class="callout-body">
+        <div class="callout-title">Why $300K is Realistic, Not Optimistic</div>
+        <div class="callout-text">Your current run rate is approximately $80–90K/year — almost entirely from concerts. Doubling ticket conversion during peak season alone adds $60–70K. The subscription model at just 500 members adds $60K more. The math doesn't require miracles. It requires infrastructure. You already have the talent, the CBS coverage, the location, and the 6-album archive. We're building the machine that turns those assets into consistent revenue.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- The Eight Streams -->
+  <div class="prose">
+    <h3>Stream 1: Concerts — The Fixed Foundation</h3>
+    <p>You currently generate approximately $80–90K/year from concerts, with peak months like March 2026 reaching $14,611. With the site conversion fixed, UTM tracking active, and a dedicated RRNC funnel in place, this single stream can realistically reach <strong>$160,000/year</strong>. The math: high-season months at $20–25K (4 months), mid-season at $8–12K (4 months), low-season at $4–6K (4 months). No new venues required. Just capturing the demand that already exists.</p>
+
+    <h3>Stream 2: The Inner Circle Subscription Hub</h3>
+    <p>A private, members-only portal — accessible from any device, installable on any home screen. Monthly members receive: full-length "Cinematic Sunset" concert recordings, monthly live-streamed "Sound-Walks" from the red rocks, first-look access to new music, and members-only pricing on RRNC experiences. At <strong>500 subscribers × $10/month = $5,000/month = $60,000/year</strong> in show-independent recurring revenue. This is money that comes in every single month — even during the July–August off-season when concerts slow down.</p><p><strong>Loyalty &amp; Return Guest Perks:</strong> The app becomes the loyalty engine. Return attendees earn milestone rewards — a free upgrade to a private sunset seat at their 5th show, a signed print at their 10th, an invitation to a members-only soundcheck session. The data tracks who shows up repeatedly. The system rewards them automatically. This is how casual fans become <em>lifers</em> — and how lifers become your most powerful marketing channel.</p>
+
+    <h3>Stream 3: Merch 2.0 — The Designer Artifact Series</h3>
+    <p>The shift from $35 concert tees to $65–$85 heavyweight, fashion-forward apparel that people actually wear outside of Sedona. Each piece becomes a walking advertisement in Phoenix, LA, and New York. Fully automated fulfillment and follow-up — when a fan buys a ticket, they receive a limited-edition merch offer 24 hours after the show with no manual work required on either side. Goal: increase merch-per-attendee from ~$5 to <strong>$25+</strong>. At 100 attendees/month purchasing, that's $2,500/month = <strong>$30,000/year</strong>.</p><p><strong>Specialty &amp; Limited Edition Drops:</strong> Dated show merchandise — numbered prints, signed posters, collector-edition apparel tied to specific concert dates or milestones — command $85–$150+ per piece and create genuine scarcity. A "May 17 Sedona Solstice" limited run of 50 signed prints sells out before the show ends. These aren't just products. They're artifacts.</p>
+
+    <h3>Stream 4: Private RRNC Sessions</h3>
+    <p>The Red Rock Nature Concert private experience at $1,200 per session is your highest-margin product. Two private sessions per month requires almost no incremental effort — just a dedicated landing page, an automated inquiry flow, and a booking system. <strong>2 sessions/month × $1,200 = $28,800/year</strong>. Corporate retreats, proposal experiences, anniversary concerts, and wellness retreat partnerships are all warm markets for this product with zero competition in Sedona.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- AI Layer -->
+  <div class="prose">
+    <h3>The AI Layer: Automated Intelligence, Human Warmth</h3>
+    <p>The most powerful thing we can do for your time is remove you from every repetitive touchpoint while making every automated interaction feel personal. Two systems accomplish this together.</p>
+
+    <h4>AI Phone Reception &amp; Booking Screen</h4>
+  </div>
+
+  <div class="callout gold fade-up">
+    <span class="callout-icon">◈</span>
+    <div class="callout-body">
+      <div class="callout-title">The Problem It Solves</div>
+      <div class="callout-text">You currently handle every inquiry yourself — "How much are tickets?" "Can I book a private show?" "Do you perform at weddings?" — by phone and text, while performing, while hiking, while living his life. An AI phone assistant handles screening, answers FAQs, collects booking information, and routes only confirmed leads and serious private event inquiries to you directly. You stop being a customer service rep and start being an artist.</div>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>The AI phone reception system answers calls in your brand voice, qualifies inquiries (concert info vs. private booking vs. press), collects name, email, event type, and date, then either books directly (for standard inquiries) or flags for your follow-up (for private/custom events). Everything syncs automatically — you wake up each morning to a clean queue of confirmed bookings and a short list of priority callbacks. No more missed opportunities because he was mid-concert when someone called.</p>
+
+    <h4>Online Concierge / AI Chatbot</h4>
+    <p>A smart chat widget on the website — trained on your show schedule, FAQ, RRNC details, bio, and pricing — handles the most common visitor questions instantly, 24/7. "When's your next show?" "What do I wear to an outdoor concert?" "Is this appropriate for kids?" "How do I book a private sunset concert for my anniversary?" The chatbot captures email, answers questions, and hands off to the booking flow when the visitor is ready. It never sleeps, never misses a question, and never sounds automated if built correctly.</p>
+
+    <h3>Stream 5: The Content Engine — Always On</h3>
+    <p>We stop "posting to social media" and start building a presence that never sleeps. One master recording of a show gets fed into a custom content pipeline. Intelligent systems extract the most emotionally resonant moments — the ones where someone in the audience wipes their eyes, where your bow hit something transcendent, where the sun dropped behind the red rocks at exactly the right second. Fresh content goes out <strong>daily across every major platform</strong> — TikTok, Instagram Reels, Instagram Stories, Facebook, YouTube Shorts, YouTube, and Pinterest — without you lifting a finger.</p>
+    <p>And when you want to drop something personal — a behind-the-scenes moment, a thought from the trail, a spontaneous clip from that morning's hike — you submit it with one tap from your phone and the system handles everything else. Your authentic voice stays front and center. The automation just makes sure it reaches everyone, everywhere, every time.</p>
+    <p><strong>Market expansion built in:</strong> the Sedona tourist captures the local base. The platform reach captures the global one — wellness seekers, travel creators, spiritual communities, classical music lovers, and the broader audience of people who didn't know they needed a Fiddler on the Rock in their life until the algorithm showed them one.</p>
+
+    <h3>Stream 6: The Healing Vertical (A Suggestion)</h3>
+    <p>You have a 6-album archive and a voice-loss/healing story that the wellness market would pay for. This is offered as a <em>suggestion</em>, not a demand — pursue this only if it resonates with your artistic direction. The product: digital "Soundscape" bundles — themed guided meditations ("The Sedona Heart-Opener") and 60-minute ambient sleep/focus loops built from existing recordings. Distribution on the site and integration with Insight Timer and Calm as traffic drivers. High-margin digital downloads that sell while you sleep.</p>
+
+    <h3>Stream 7: Flyers, Media &amp; Press Packages</h3>
+    <p>Your CBS Mornings coverage is a credential that most local artists would never achieve — and it's currently sitting unused. A professional media package (one-pager, high-resolution press photos, CBS Mornings clip, testimonial quotes, technical rider) positions you for: arts council grants, festival bookings, corporate event inquiries, press coverage in Phoenix and LA lifestyle publications, and outreach to high-ticket performing arts centers. This package doesn't cost money. It opens doors that pure talent alone cannot.</p>
+
+    <h3>Stream 8: The Legacy Play — National &amp; Tour Strategy</h3>
+    <p>The demand-driven tour: instead of guessing where to play, we use the site's "Request a Show" map to collect zip codes from fans over 6 months. When you tour in August/September (the Sedona off-season), we book shows only where the heat map shows a dense, hungry audience. The Kennedy Center and high-tier performing arts centers are the long-horizon target, leveraging the CBS Mornings coverage, the voice-loss narrative, and a full press package as the pitch materials.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- The Modular Menu -->
+  <div class="prose">
+    <h3>The Modular Menu — Build Your Own Machine</h3>
+    <p>You don't have to take all of this at once. The Grand Machine is modular. Each of the following can be activated independently, in any order, as budget and appetite allow. Think of these as unlockable layers — each one adds a revenue stream without dismantling what's already working.</p>
+  </div>
+
+  <div class="module-grid fade-up">
+    <div class="module-card">
+      <span class="module-id">Module A — Foundation</span>
+      <div class="module-name">Site Fixes &amp; SEO Rescue</div>
+      <div class="module-desc">The 30-Day Sprint. All technical, UX, and SEO fixes. Included in the $2,500 retainer.</div>
+      <div class="module-price">✓ Included — Retainer</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module B — Email</span>
+      <div class="module-name">Email System &amp; Newsletter</div>
+      <div class="module-desc">List migration, resurrection sequence, post-concert automation, weekly newsletter. Ongoing content management.</div>
+      <div class="module-price">✓ Included — Retainer</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module C — RRNC</span>
+      <div class="module-name">Red Rock Nature Concert Funnel</div>
+      <div class="module-desc">Dedicated landing page, booking flow, inquiry automation for private sessions and group concerts.</div>
+      <div class="module-price">✓ Included — Retainer</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module D — Social</span>
+      <div class="module-name">Content Engine &amp; Social Automation</div>
+      <div class="module-desc">A custom automation system that turns one master recording into daily content across every platform. Tyler posts personally anytime with one tap — the system handles formatting, scheduling, and distribution automatically.</div>
+      <div class="module-price">Add-on — Phase 2</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module E — Merch</span>
+      <div class="module-name">Merch 2.0 &amp; Online Store</div>
+      <div class="module-desc">Full e-commerce setup, on-demand fulfillment integration, the Designer Artifact line, and automated post-concert merch emails. Merch that sells itself.</div>
+      <div class="module-price">Add-on — Phase 2</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module F — App</span>
+      <div class="module-name">Inner Circle PWA + Subscription</div>
+      <div class="module-desc">A private members portal with subscription billing and exclusive content delivery — installable on any device, accessible anywhere. The recurring monthly revenue engine.</div>
+      <div class="module-price">Add-on — Phase 3</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module G — AI</span>
+      <div class="module-name">AI Phone + Chatbot Concierge</div>
+      <div class="module-desc">AI phone screening, booking automation, website chat widget. You never miss an inquiry. Available 24/7.</div>
+      <div class="module-price">Add-on — Phase 2</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module H — Media</span>
+      <div class="module-name">Press Kit &amp; Media Package</div>
+      <div class="module-desc">Professional one-pager, press photos, CBS Mornings credential, technical rider, venue outreach templates.</div>
+      <div class="module-price">Add-on — Phase 2</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module I — Wellness</span>
+      <div class="module-name">Healing Soundscape Vertical</div>
+      <div class="module-desc">Digital soundscape bundles from existing album archive. Insight Timer / Calm distribution. Passive income stream.</div>
+      <div class="module-price">Suggestion — Phase 3</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module J — Tour</span>
+      <div class="module-name">Demand-Driven Tour</div>
+      <div class="module-desc">Fan zip code heat map, show-request tracking, tour routing for August–September off-season. Play only where demand already exists.</div>
+      <div class="module-price">Add-on — Phase 4</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module K — Legacy</span>
+      <div class="module-name">National Venues &amp; Press Outreach</div>
+      <div class="module-desc">Kennedy Center, Performing Arts Centers, Arizona music grant applications. Built on the CBS Mornings foundation.</div>
+      <div class="module-price">Add-on — Phase 4</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module L — Site 2.0</span>
+      <div class="module-name">Cinematic Website Redesign</div>
+      <div class="module-desc">A full rebuild on Next.js with motion design, scroll-driven animations, micro-interactions, parallax depth, and cinematic page transitions. Built to feel like the experience it's selling — not a Wix template.</div>
+      <div class="module-price">Add-on — Phase 3</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module M — Native App</span>
+      <div class="module-name">The Official FOTR Phone App</div>
+      <div class="module-desc">A native iOS + Android app — not just a PWA. Live show alerts, exclusive content, loyalty rewards tracking, merch drops, private booking requests, and a direct line to the Fiddler on the Rock world. A permanent home on every fan's home screen.</div>
+      <div class="module-price">Add-on — Phase 4</div>
+    </div>
+    <div class="module-card">
+      <span class="module-id">Module N — Wild Card</span>
+      <div class="module-name">The Sister Play</div>
+      <div class="module-desc">Strategic outreach leveraging the Shania Twain connection for high-ticket charity galas, guest appearances, and media moments.</div>
+      <div class="module-price">Opportunistic — When Ready</div>
+    </div>
+  </div>
+
+  <div class="callout gold fade-up" style="margin-top:0;">
+    <span class="callout-icon">∞</span>
+    <div class="callout-body">
+      <div class="callout-title">And this is just what's on the page.</div>
+      <div class="callout-text">There are a hundred more ideas in the queue — waiting for the right moment, the right season, the right conversation. The modules above are the visible architecture. What's not listed yet is what makes this genuinely exciting: the ideas that emerge when two people who both think in systems start building something together. We haven't even scratched the surface.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- 12-Month Roadmap -->
+  <div class="prose" style="margin-bottom:32px;">
+    <h3>The 12-Month Milestone Roadmap</h3>
+    <p>Built around Sedona's natural high and low season rhythm, and your stated plans including a truck-and-trailer tour setup and the upcoming move. The machine builds in phases so revenue is always ahead of investment.</p>
+  </div>
+
+  <table class="milestone-table fade-up">
+    <thead>
+      <tr>
+        <th>Phase</th>
+        <th>Focus</th>
+        <th>Key Milestones</th>
+        <th>Est. Run Rate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="phase-label">Month 1–2</span><span class="phase-title">Technical Rescue</span></td>
+        <td>Modules A, B, C</td>
+        <td>H1 fixed. Sitemap submitted. UTM live. Email list resurrected. RRNC funnel launched. First attribution data in.</td>
+        <td style="color:var(--gold2);font-family:var(--font-mono);">$8–12K/mo</td>
+      </tr>
+      <tr>
+        <td><span class="phase-label">Month 3–5</span><span class="phase-title">Growth Engine</span></td>
+        <td>Modules D, E, G</td>
+        <td>Content Engine live, daily posts across all platforms. Online store and Merch 2.0 launched. AI phone screen active. Social presence 3× its current reach. Press kit complete.</td>
+        <td style="color:var(--gold2);font-family:var(--font-mono);">$14–18K/mo</td>
+      </tr>
+      <tr>
+        <td><span class="phase-label">Month 6–8</span><span class="phase-title">Recurring Revenue</span></td>
+        <td>Modules F, H, I</td>
+        <td>Inner Circle PWA launched. 200+ founding members. Healing vertical active. Off-season revenue stabilized. Tour planning begins.</td>
+        <td style="color:var(--gold2);font-family:var(--font-mono);">$20–25K/mo</td>
+      </tr>
+      <tr>
+        <td><span class="phase-label">Month 9–12</span><span class="phase-title">The Global Play</span></td>
+        <td>Modules J, K, L</td>
+        <td>Demand-driven tour (truck &amp; trailer). National venue outreach initiated. Kennedy Center deck submitted. 500 Inner Circle members. $300K run-rate achieved.</td>
+        <td style="color:var(--gold2);font-family:var(--font-mono);">$25–30K/mo</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="quote-block fade-up">
+    <div class="quote-text">"The Grand Machine isn't about working harder. It's about working larger. You provide the Spark. I build the Engine."</div>
+    <div class="quote-attr">— J. Eli Sayers &nbsp;·&nbsp; Jason Eli Sayers Foundation</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-brand">
+    <img src="../images/strategy-nav-logo.png" alt="" class="footer-logo">
+    <div>
+      <div class="footer-name">J. Eli Sayers</div>
+      <div class="footer-org">Jason Eli Sayers Foundation &nbsp;·&nbsp; elisayers@gmail.com</div>
+    </div>
+  </div>
+  <div class="footer-tagline">Building the Machine. Scaling the Magic.</div>
+</footer>
+
+<script>
+// ─── Scroll fade-in ───────────────────────────────────────────
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// ─── Revenue bar animation ─────────────────────────────────────
+const barObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.rev-bar-fill').forEach(bar => {
+        const w = bar.dataset.width;
+        setTimeout(() => { bar.style.width = w + '%'; }, 200);
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+const revSection = document.querySelector('.revenue-section');
+if (revSection) barObs.observe(revSection);
+
+// ─── Nav active state on scroll ───────────────────────────────
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+const navObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+
+sections.forEach(s => navObs.observe(s));
+</script>
+</body>
+</html>

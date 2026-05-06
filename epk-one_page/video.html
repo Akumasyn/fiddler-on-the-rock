@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tyler Carson — Live Performance</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:   #0A0810;
+  --gold:  #E8971A;
+  --cream: #F7EFE4;
+  --soft:  #EDE0CE;
+  --muted: #9a8fa8;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 48px;
+}
+
+.logo {
+  height: 50px;
+  opacity: 0.82;
+  margin-bottom: 44px;
+}
+
+.vid-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 26px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.vid-label::before, .vid-label::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.3;
+}
+
+.vid-wrap { width: 100%; max-width: 840px; }
+.vid-frame {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+  border: 1px solid rgba(232,151,26,0.15);
+}
+.vid-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.vid-footer {
+  margin-top: 48px;
+  border-top: 1px solid rgba(232,151,26,0.1);
+  padding-top: 32px;
+  width: 100%;
+  max-width: 840px;
+  text-align: center;
+}
+.footer-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+.footer-name em { font-style: italic; color: var(--gold); }
+.footer-links { font-size: 11px; color: var(--muted); }
+.footer-links a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+.footer-links span { margin: 0 8px; opacity: 0.4; }
+
+.back-links {
+  margin-top: 32px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+.back-link {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(154,143,168,0.25);
+  padding-bottom: 1px;
+  transition: color 0.2s;
+}
+.back-link:hover { color: var(--gold); }
+
+@media (max-width: 720px) {
+  body { padding: 48px 24px; }
+  .back-links { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<img src="images/packages-footer-logo.png" alt="Fiddler on the Rock" class="logo">
+
+<div class="vid-label">Live Performance</div>
+
+<div class="vid-wrap">
+  <div class="vid-frame">
+    <iframe src="https://www.youtube.com/embed/NBV4dstXiuk"
+      title="Tyler Carson — Live Performance"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  </div>
+</div>
+
+<div class="vid-footer">
+  <div class="footer-name">Fiddler <em>on the</em> Rock</div>
+  <div class="footer-links">
+    <a href="https://fiddlerontherock.com">fiddlerontherock.com</a>
+    <span>·</span>
+    <a href="https://fiddler-on-the-rock.vercel.app/EPK">Full Press Kit</a>
+    <span>·</span>
+    <a href="mailto:hello@fiddleontherock.com">hello@fiddleontherock.com</a>
+  </div>
+  <div class="back-links">
+    <a href="v1/index.html" class="back-link">← Classic One Sheet</a>
+    <a href="v2/index.html" class="back-link">← Story Version</a>
+    <a href="v3/index.html" class="back-link">← Press Kit</a>
+  </div>
+</div>
+
+</body>
+</html>
